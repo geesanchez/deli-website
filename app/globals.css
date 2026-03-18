@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-cream: #FAF7F2;
+  --color-cream-dark: #F0EBE1;
+  --color-green: #2D5A3D;
+  --color-green-light: #3A7A52;
+  --color-green-dark: #1E3D2A;
+  --color-brown: #6B4226;
+  --color-brown-light: #8B6240;
+  --color-warm-gray: #7A7267;
+  --color-gold: #C8A45E;
+  --color-gold-light: #D4B872;
+  --color-text: #2C2418;
+  --color-text-light: #5C5347;
+  --color-border: #E5DDD0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-deli-green: var(--color-green);
+  --color-deli-green-light: var(--color-green-light);
+  --color-deli-green-dark: var(--color-green-dark);
+  --color-deli-brown: var(--color-brown);
+  --color-deli-brown-light: var(--color-brown-light);
+  --color-warm-gray: var(--color-warm-gray);
+  --color-deli-gold: var(--color-gold);
+  --color-deli-gold-light: var(--color-gold-light);
+  --color-deli-text: var(--color-text);
+  --color-deli-text-light: var(--color-text-light);
+  --color-deli-border: var(--color-border);
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for the menu tabs */
+.menu-tabs::-webkit-scrollbar {
+  height: 0;
+}
+
+/* Photo placeholder styling */
+.photo-placeholder {
+  background-color: var(--color-cream-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: var(--color-warm-gray);
+  font-size: 0.875rem;
 }
