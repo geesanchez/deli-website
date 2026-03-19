@@ -10,28 +10,13 @@ export default function BoxLunches() {
   return (
     <section id="box-lunches" className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Photo placeholder */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1"
-          >
-            {/* TODO: Replace with real photo of box lunches or beach picnic */}
-            <div className="aspect-[4/3] rounded-2xl photo-placeholder overflow-hidden">
-              <span>Photo: Picnic Box Lunches on Carmel Beach</span>
-            </div>
-          </motion.div>
-
+        <div className="max-w-3xl mx-auto">
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="order-1 lg:order-2"
           >
             <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
               Beach Day?

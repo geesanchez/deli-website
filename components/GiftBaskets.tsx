@@ -31,9 +31,8 @@ export default function GiftBaskets() {
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="bg-white rounded-xl p-6 border border-deli-border/50 text-center hover:shadow-md transition-shadow"
             >
-              {/* TODO: Replace with photo of gift basket */}
-              <div className="mx-auto mb-4 h-32 w-full rounded-lg photo-placeholder">
-                <span className="text-xs">Photo: {basket.name}</span>
+              <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-cream flex items-center justify-center">
+                <span className="text-deli-gold text-2xl">&#127873;</span>
               </div>
               <h3 className="font-heading text-lg font-semibold text-deli-green-dark mb-2">
                 {basket.name}

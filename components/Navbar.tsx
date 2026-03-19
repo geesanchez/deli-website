@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { businessInfo } from "@/lib/data";
 
@@ -22,9 +23,14 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <span className="font-heading text-xl font-bold text-deli-green-dark">
-              5th Ave. Deli
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="5th Ave Deli & Catering Co."
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </a>
 
           {/* Desktop links */}

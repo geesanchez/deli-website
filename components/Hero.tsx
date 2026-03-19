@@ -1,18 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { businessInfo } from "@/lib/data";
 
 export default function Hero() {
   return (
     <section className="relative pt-16 min-h-[85vh] flex items-center">
-      {/* Background placeholder — replace with hero image */}
-      <div className="absolute inset-0 photo-placeholder">
-        {/* TODO: Replace with real hero image of the deli or food spread */}
-        <div className="absolute inset-0 bg-gradient-to-b from-deli-green-dark/70 via-deli-green-dark/50 to-deli-green-dark/80" />
-        <div className="absolute inset-0 flex items-center justify-center text-cream-dark/30 text-lg">
-          Photo: Deli Counter Spread or Carmel-by-the-Sea Street View
-        </div>
+      {/* Hero background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero.jpg"
+          alt="5th Ave. Deli & Catering Co."
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">

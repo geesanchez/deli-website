@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const features = [
   {
@@ -65,9 +66,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            {/* TODO: Replace with real photo of the deli interior or family */}
-            <div className="aspect-[4/3] rounded-2xl photo-placeholder overflow-hidden">
-              <span>Photo: Deli Interior or the Family</span>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/storefront.jpg"
+                alt="5th Ave. Deli & Catering Co. storefront in Carmel-by-the-Sea"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-deli-green rounded-xl px-6 py-4 shadow-lg hidden sm:block">
               <p className="font-heading text-3xl font-bold text-white">34</p>

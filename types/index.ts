@@ -1,7 +1,7 @@
 export interface MenuItem {
   name: string;
   description: string;
-  price: string; // TODO: Replace placeholder prices with real prices
+  price: string;
 }
 
 export interface MenuCategory {

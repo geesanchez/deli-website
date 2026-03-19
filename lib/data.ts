@@ -48,55 +48,59 @@ export const businessInfo: BusinessInfo = {
   },
 };
 
-// TODO: Replace ALL placeholder menu items and prices with real menu data
 export const menuCategories: MenuCategory[] = [
   {
-    id: "deli",
-    label: "Deli Menu",
-    description: "Fresh sandwiches, homemade soups, salads, and hot meals made daily.",
+    id: "soups",
+    label: "Homemade Soups",
+    description: "Rotating selection of hearty, homemade soups made fresh daily.",
     items: [
-      // TODO: Replace with real deli menu items and prices
-      { name: "Turkey Avocado", description: "Oven-roasted turkey, fresh avocado, lettuce, tomato, and herb mayo on sourdough", price: "$12.95" },
-      { name: "Italian Sub", description: "Genoa salami, capicola, provolone, lettuce, tomato, onion, pepperoncini, and Italian dressing", price: "$13.95" },
-      { name: "Roast Beef & Cheddar", description: "Slow-roasted beef, sharp cheddar, horseradish cream, lettuce, and tomato on a Dutch crunch roll", price: "$13.95" },
-      { name: "Chicken Pesto", description: "Grilled chicken breast, fresh pesto, sun-dried tomatoes, mozzarella, and mixed greens", price: "$13.50" },
-      { name: "Veggie Delight", description: "Avocado, cucumber, sprouts, roasted red peppers, hummus, and Swiss on whole wheat", price: "$11.95" },
-      { name: "Soup of the Day", description: "Homemade soup served with a fresh bread roll. Ask about today's selection.", price: "$6.95" },
-      { name: "Garden Salad", description: "Mixed greens, cucumber, tomato, carrots, and house vinaigrette", price: "$8.95" },
-      { name: "Caesar Salad", description: "Romaine hearts, shaved Parmesan, croutons, and classic Caesar dressing", price: "$9.95" },
-      { name: "Daily Hot Special", description: "Chef's rotating hot entrée — ask what's cooking today!", price: "$14.95" },
+      { name: "Drunken' Chili", description: "A bold, hearty chili with a kick", price: "Ask for today's selection" },
+      { name: "Chicken Noodle", description: "Classic comfort — tender chicken, egg noodles, and fresh vegetables", price: "Ask for today's selection" },
+      { name: "Chicken Pozole", description: "Traditional Mexican soup with hominy, chicken, and warm spices", price: "Ask for today's selection" },
+      { name: "Tuscan White Bean with Ham", description: "Creamy white beans, smoky ham, and Italian herbs", price: "Ask for today's selection" },
+      { name: "Butternut Squash", description: "Velvety roasted butternut squash, lightly spiced", price: "Ask for today's selection" },
+      { name: "Italian Wedding", description: "Meatballs, escarole, and pasta in a savory broth", price: "Ask for today's selection" },
+      { name: "Jambalaya", description: "Spicy Cajun-style soup with sausage, chicken, and rice", price: "Ask for today's selection" },
+      { name: "Creamy Potato", description: "Rich and creamy loaded potato soup", price: "Ask for today's selection" },
+    ],
+  },
+  {
+    id: "hot-specialty",
+    label: "Hot Specialty Sandwiches",
+    description: "Served hot and fresh — our most popular signature sandwiches.",
+    items: [
+      { name: "Reuben", description: "Pastrami or turkey, Thousand Island, sauerkraut & Swiss on marble rye", price: "Market" },
+      { name: "B.L.T.", description: "Crispy bacon, lettuce & tomatoes on toasted bread", price: "Market" },
+      { name: "Tri-Tip Steak", description: "Marinated tri-tip, provolone, lettuce, tomatoes", price: "Market" },
+      { name: "Meatball Marinara", description: "Meatballs, parmesan, marinara on a sourdough roll", price: "Market" },
+      { name: "Falafel", description: "Falafel patties on pita with lettuce, tomato, cucumbers, tahini", price: "Market" },
+      { name: "BBQ Meatloaf", description: "BBQ meatloaf, lettuce, tomatoes, cheddar, BBQ sauce", price: "Market" },
+    ],
+  },
+  {
+    id: "cold-specialty",
+    label: "Cold Specialty Sandwiches",
+    description: "Fresh and flavorful cold sandwiches, perfect for a Carmel Beach picnic.",
+    items: [
+      { name: "Turkey Berry", description: "Turkey, cranberry sauce & stuffing", price: "Market" },
+      { name: "Muffaletta", description: "Salami, ham, provolone, olive mix on French roll", price: "Market" },
+      { name: "Curried Chicken Salad", description: "Curried chicken salad with lettuce & tomato", price: "Market" },
+      { name: "Teriyaki Salmon", description: "Glazed salmon, spinach, cucumbers, honey mustard", price: "Market" },
+      { name: "Spiral Honey Ham", description: "Ham, lettuce, tomato, Swiss on marble rye", price: "Market" },
+      { name: "Natural Roasted Turkey", description: "Turkey, lettuce, tomato", price: "Market" },
     ],
   },
   {
     id: "breakfast",
     label: "Breakfast",
-    description: "Hot breakfast sandwiches, baked goods, fruit, and coffee to start your morning.",
+    description: "Breakfast Bar served Monday through Friday, 8–10 AM.",
     items: [
-      // TODO: Replace with real breakfast menu items and prices
-      { name: "Bacon, Egg & Cheese", description: "Scrambled eggs, applewood bacon, and melted cheddar on a toasted roll", price: "$7.95" },
-      { name: "Sausage, Egg & Cheese", description: "Scrambled eggs, breakfast sausage patty, and American cheese on a croissant", price: "$7.95" },
-      { name: "Veggie Breakfast Sandwich", description: "Scrambled eggs, avocado, tomato, spinach, and Swiss on sourdough", price: "$8.50" },
-      { name: "Fresh Fruit Cup", description: "Seasonal fresh fruit, perfectly ripe", price: "$5.95" },
-      { name: "Baked Muffin", description: "Freshly baked — blueberry, banana nut, or bran. Ask for today's flavors.", price: "$3.95" },
-      { name: "Bagel with Cream Cheese", description: "Toasted bagel with a generous spread of cream cheese", price: "$4.50" },
-      { name: "Granola & Yogurt Parfait", description: "Greek yogurt layered with house granola and fresh berries", price: "$6.95" },
-      { name: "Coffee", description: "Freshly brewed, locally roasted. Regular or decaf.", price: "$2.50" },
-    ],
-  },
-  {
-    id: "specialty",
-    label: "Specialty Sandwiches",
-    description: "Our signature creations — burgers, falafel, and house favorites.",
-    items: [
-      // TODO: Replace with real specialty sandwich items and prices
-      { name: "Classic Burger", description: "Half-pound Angus beef patty, lettuce, tomato, onion, pickles, and special sauce", price: "$12.95" },
-      { name: "Falafel Wrap", description: "Crispy housemade falafel, tahini, pickled veggies, lettuce, and tomato in a warm pita", price: "$11.95" },
-      { name: "BLT", description: "Thick-cut bacon, fresh lettuce, ripe tomato, and mayo on toasted sourdough", price: "$10.95" },
-      { name: "Egg Salad Sandwich", description: "Classic egg salad with celery and herbs on your choice of bread", price: "$9.95" },
-      { name: "Tuna Salad Sandwich", description: "Albacore tuna salad with celery and red onion on a croissant", price: "$10.95" },
-      { name: "BBQ Meatloaf Sandwich", description: "Housemade meatloaf, BBQ glaze, caramelized onions, and cheddar on a toasted roll", price: "$13.50" },
-      { name: "Philly Cheesesteak", description: "Shaved steak, sautéed peppers and onions, melted provolone on a hoagie roll", price: "$14.50" },
-      { name: "Club Sandwich", description: "Triple-decker with turkey, bacon, lettuce, tomato, and mayo", price: "$13.95" },
+      { name: "Breakfast Burrito", description: "Scrambled eggs, cheese, salsa, potatoes — with bacon, ham, sausage, or veggie", price: "Market" },
+      { name: "Mexican Breakfast Burrito", description: "Eggs, chorizo, pepper jack, beans, salsa & pico de gallo", price: "Market" },
+      { name: "Breakfast Bagel", description: "2 eggs, ham/bacon/sausage, smokey cheddar on a toasted bagel", price: "Market" },
+      { name: "Croissant Breakfast Sandwich", description: "2 eggs, bacon/ham/sausage, cheese, tomato on a buttery croissant", price: "Market" },
+      { name: "English Muffin", description: "2 eggs, tomato, cheddar, ham/bacon/sausage on a toasted English muffin", price: "Market" },
+      { name: "Sliced Quiche", description: "Lorraine or Spinach — baked fresh daily", price: "Market" },
     ],
   },
   {
@@ -104,13 +108,14 @@ export const menuCategories: MenuCategory[] = [
     label: "Sandwich Bar",
     description: "Build your own masterpiece — pick your bread, fillings, and extras.",
     items: [
-      // TODO: Replace with real sandwich bar options and prices
-      { name: "Base Sandwich", description: "Choice of roll or sliced bread with one premium filling", price: "$9.95" },
-      { name: "Extra Meat", description: "Add another protein to your sandwich", price: "$2.50" },
-      { name: "Extra Cheese", description: "Add your choice of cheese — cheddar, Swiss, provolone, pepper jack, or American", price: "$1.50" },
-      { name: "Premium Toppings", description: "Avocado, bacon, sun-dried tomatoes, or roasted peppers", price: "$1.50" },
-      { name: "Standard Toppings", description: "Lettuce, tomato, onion, pickles, sprouts, pepperoncini — included free", price: "Free" },
-      { name: "Sauces & Spreads", description: "Mayo, mustard, pesto, hummus, horseradish, Italian dressing, and more", price: "Free" },
+      { name: "Full Sandwich", description: "Your choice of meats, cheese, and toppings on sliced bread", price: "$7.50" },
+      { name: "Half Sandwich", description: "A smaller portion on sliced bread", price: "$4.50" },
+      { name: "Roll Upgrade", description: "Upgrade from sliced bread to a fresh roll", price: "+$0.50" },
+      { name: "Extra Meat", description: "Add another protein to your sandwich", price: "+$2.00" },
+      { name: "Cheese", description: "Add your choice of cheese", price: "+$0.50" },
+      { name: "Imported Cheese", description: "Upgrade to a premium imported cheese", price: "+$2.00" },
+      { name: "Premium Extras", description: "Avocado, bacon, pesto, or sundried tomato", price: "+$1.50 each" },
+      { name: "Condiments", description: "Pick 4 free — lettuce, tomato, onion, pickles, sprouts & more. Extra $0.50 each.", price: "4 Free" },
     ],
   },
   {
@@ -118,29 +123,26 @@ export const menuCategories: MenuCategory[] = [
     label: "Box Lunches",
     description: "Perfect for Carmel Beach picnics, day trips to Big Sur, or group outings.",
     items: [
-      // TODO: Replace with real box lunch options and prices
-      { name: "Classic Deli Box", description: "Choice of sandwich, bag of chips, fresh cookie, pickle spear, and a drink", price: "$15.95" },
-      { name: "Turkey Club Box", description: "Turkey club sandwich, pasta salad, cookie, and a drink", price: "$16.95" },
-      { name: "Veggie Picnic Box", description: "Veggie wrap, hummus & veggies, fresh fruit, cookie, and a drink", price: "$15.95" },
-      { name: "Italian Picnic Box", description: "Italian sub, antipasto salad, biscotti, and a drink", price: "$16.95" },
-      { name: "Kids Box", description: "PB&J or turkey & cheese, apple slices, cookie, and a juice box", price: "$9.95" },
-      { name: "Group Box (serves 4)", description: "Assorted sandwich platter, chips, cookies, and drinks for four", price: "$55.00" },
+      { name: "5th Avenue's Deli Picnic", description: "Ham, turkey, or roast beef, Swiss or cheddar, lettuce & tomato, apple, chips & cookie", price: "$14.50" },
+      { name: "Carmel Classic", description: "Oven roasted turkey, cheddar, lettuce & tomato, pasta salad, chips & espresso brownie or lemon bar", price: "$18.50" },
+      { name: "Deluxe Picnic", description: "Curried chicken salad sandwich, green salad, chips, carrot cake & drink", price: "$20.99" },
+      { name: "Vegetarian Box", description: "Falafel or veggie sandwich, Greek salad, egg, apple & coconut macaroon", price: "$19.00" },
     ],
   },
 ];
 
-// TODO: Replace with real catering menu items and prices
 export const cateringHighlights: MenuCategory = {
   id: "catering",
   label: "Catering Menu",
   description: "Full-service catering for any occasion — from intimate gatherings to large events.",
   items: [
-    { name: "Sandwich Platter", description: "Assorted gourmet sandwiches, beautifully arranged. Serves 10-12.", price: "$109.95" },
-    { name: "Tapas Spread", description: "Mediterranean-inspired small bites: bruschetta, stuffed mushrooms, artisan cheese board", price: "$120.00" },
-    { name: "Brunch Package", description: "Egg dishes, pastries, fresh fruit, coffee, and juice. Per person.", price: "$18.95/pp" },
-    { name: "Executive Lunch", description: "Sandwich, salad, dessert, and beverage. Per person.", price: "$22.95/pp" },
-    { name: "Entrée Buffet", description: "Choice of two entrées, two sides, salad, rolls, and dessert. Per person.", price: "$32.95/pp" },
-    { name: "Dessert Platter", description: "Assorted cookies, brownies, and seasonal sweets. Serves 10-12.", price: "$44.95" },
+    { name: "Fresh Pastries", description: "Mini Danish, croissants, and muffins — perfect for morning meetings", price: "$35–$50" },
+    { name: "Traditional Deli Sandwiches", description: "Assorted deli sandwiches, beautifully arranged. Serves 8-10.", price: "$70.00" },
+    { name: "Fruit & Cheese Tray", description: "Seasonal fruits paired with artisan cheeses", price: "$40–$70" },
+    { name: "Antipasto Platter", description: "Italian meats, marinated vegetables, olives, and cheeses", price: "$40–$60" },
+    { name: "Veggie Lasagna", description: "Homemade vegetable lasagna. Serves 8-10.", price: "$75.00" },
+    { name: "Meat Lasagna", description: "Hearty meat lasagna with house-made sauce. Serves 8-10.", price: "$85.00" },
+    { name: "Dessert Sampler", description: "Assorted cookies, brownies, and seasonal sweets. Serves 10-15.", price: "$45.00" },
   ],
 };
 
@@ -178,40 +180,63 @@ export const cateringServices: CateringService[] = [
 ];
 
 export const giftBaskets: GiftBasketOption[] = [
-  // TODO: Replace with real gift basket options and prices
   {
     name: "The Carmel Classic",
     description: "Artisan cheeses, crackers, local honey, dried fruits, and gourmet nuts.",
-    priceRange: "$45 – $65",
+    priceRange: "Custom",
   },
   {
     name: "Wine Country",
-    description: "Two bottles of local Monterey County wine paired with cheeses and charcuterie.",
-    priceRange: "$75 – $120",
+    description: "Local Monterey County wines paired with cheeses and charcuterie.",
+    priceRange: "Custom",
   },
   {
     name: "Sweet Tooth",
     description: "Homemade cookies, brownies, chocolate truffles, and seasonal treats.",
-    priceRange: "$35 – $55",
+    priceRange: "Custom",
   },
   {
     name: "Custom Basket",
-    description: "Tell us your budget and preferences — we'll create something special just for you.",
+    description: "Tell us your budget and preferences — we'll create something special.",
     priceRange: "Any budget",
   },
 ];
 
 export const reviews: Review[] = [
   {
-    quote: "A delicious breakfast sandwich for only $7! Great option for beach trips or outings to Big Sur.",
-    source: "Yelp",
+    quote:
+      "In Carmel you have two choices for lunch: a sit-down place where $100 evaporates from your wallet, or come to this deli and order a delightfully fresh $8 sandwich. Head down to the beach and enjoy this beautiful part of the world. The tuna salad I had from here will not slip from my memory.",
+    author: "Timothy F.",
+    source: "Google",
   },
   {
-    quote: "Service was pretty quick. Most of us ordered their specialty sandwiches, and they were all delicious.",
-    source: "TripAdvisor",
+    quote:
+      "A must stop for picnic food before heading to the beach or Big Sur. An impressive variety of food for a tiny place. The food is consistently good and the sandwich vegetables crisp and fresh.",
+    author: "H NH",
+    source: "Google",
   },
   {
-    quote: "We ordered a veggie sandwich and some of their salads for our picnic lunch. A wonderful and tasty meal.",
-    source: "Blog Review",
+    quote:
+      "Fantastic sandwich, fair prices and kind staff. I witnessed one of the employees give a drink to a patron who would have struggled to buy one. It was a heart warming moment that made me want to give them all my business.",
+    author: "Drew W.",
+    source: "Google",
+  },
+  {
+    quote:
+      "The Best cozy Deli in Carmel by the Sea! The atmosphere, the sandwiches to die for, homemade soup and the best service in town. I totally recommend to stop here.",
+    author: "Miss Lady M.",
+    source: "Google",
+  },
+  {
+    quote:
+      "Such a charming spot! We stopped in for some takeout to enjoy a picnic at the beach, and it was a great choice. The sandwiches were affordable with a wide variety of options. The personal service really made it stand out.",
+    author: "Thap N.",
+    source: "Google",
+  },
+  {
+    quote:
+      "So many options for sandwiches, salad, soup, pastries and more. Best minestrone soup ever! Kindest people and in a prime location. 10/10.",
+    author: "Aryana I.",
+    source: "Google",
   },
 ];

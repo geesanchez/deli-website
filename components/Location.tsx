@@ -1,10 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { businessInfo } from "@/lib/data";
 
+const inquiryTypes = [
+  "General Inquiry",
+  "Catering Request",
+  "Box Lunch Order",
+  "Gift Basket Inquiry",
+] as const;
+
 export default function Location() {
-  const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.5!2d${businessInfo.coordinates.lng}!3d${businessInfo.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808de614b5a5e295%3A0x3c1d75e2a45b9c8e!2s5th%20Avenue%20Deli%20%26%20Catering!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus`;
+  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.8!2d-121.9233!3d36.5558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808de45270a8775b%3A0x91d4daa9e41420a0!2s5th%20Avenue%20Deli%20%26%20Catering!5e0!3m2!1sen!2sus!4v1";
 
   return (
     <section id="location" className="py-20 bg-cream">
@@ -28,7 +36,7 @@ export default function Location() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl overflow-hidden border border-deli-border h-80 lg:h-full min-h-[320px]"
+            className="rounded-2xl overflow-hidden border border-deli-border h-64 md:h-80 lg:h-full lg:min-h-[400px]"
           >
             <iframe
               src={mapEmbedUrl}
@@ -113,7 +121,211 @@ export default function Location() {
             </div>
           </motion.div>
         </div>
+
+        {/* Contact Form */}
+        <ContactForm />
       </div>
     </section>
+  );
+}
+
+function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    type: "General Inquiry",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", type: "General Inquiry", message: "" });
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please call us at (831) 625-2688.");
+    }
+  }
+
+  const inputClasses =
+    "w-full rounded-lg border border-deli-border bg-white px-4 py-2.5 text-sm text-deli-text placeholder:text-deli-text-light/60 focus:border-deli-green focus:ring-1 focus:ring-deli-green outline-none transition-colors";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="mt-16"
+    >
+      <div className="text-center mb-8">
+        <h3 className="font-heading text-2xl sm:text-3xl font-bold text-deli-green-dark mb-2">
+          Send Us a Message
+        </h3>
+        <p className="text-deli-text-light text-sm">
+          Questions about catering, box lunches, or gift baskets? We&apos;d love to hear from you.
+        </p>
+      </div>
+
+      {status === "success" ? (
+        <div className="mx-auto max-w-2xl rounded-2xl border border-deli-green/30 bg-deli-green/5 p-8 text-center">
+          <svg
+            className="mx-auto mb-4 h-12 w-12 text-deli-green"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <h4 className="font-heading text-xl font-semibold text-deli-green-dark mb-2">
+            Message Sent!
+          </h4>
+          <p className="text-deli-text-light text-sm">
+            Thank you for reaching out. We&apos;ll get back to you soon!
+          </p>
+          <button
+            onClick={() => setStatus("idle")}
+            className="mt-4 text-sm font-medium text-deli-green hover:text-deli-green-dark transition-colors underline underline-offset-2"
+          >
+            Send another message
+          </button>
+        </div>
+      ) : (
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto max-w-2xl rounded-2xl border border-deli-border bg-white p-6 sm:p-8 shadow-sm"
+        >
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label htmlFor="contact-name" className="block text-sm font-medium text-deli-text mb-1">
+                Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className={inputClasses}
+              />
+            </div>
+            <div>
+              <label htmlFor="contact-email" className="block text-sm font-medium text-deli-text mb-1">
+                Email <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                className={inputClasses}
+              />
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label htmlFor="contact-phone" className="block text-sm font-medium text-deli-text mb-1">
+                Phone <span className="text-deli-text-light/60 text-xs">(optional)</span>
+              </label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="(831) 555-1234"
+                className={inputClasses}
+              />
+            </div>
+            <div>
+              <label htmlFor="contact-type" className="block text-sm font-medium text-deli-text mb-1">
+                Inquiry Type
+              </label>
+              <select
+                id="contact-type"
+                name="type"
+                value={formData.type}
+                onChange={handleChange}
+                className={inputClasses}
+              >
+                {inquiryTypes.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <label htmlFor="contact-message" className="block text-sm font-medium text-deli-text mb-1">
+              Message <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="contact-message"
+              name="message"
+              required
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell us how we can help..."
+              className={inputClasses + " resize-none"}
+            />
+          </div>
+
+          {status === "error" && (
+            <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {errorMessage}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="w-full rounded-lg bg-deli-green px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-deli-green-dark focus:ring-2 focus:ring-deli-green focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {status === "submitting" ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      )}
+    </motion.div>
   );
 }
