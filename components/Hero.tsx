@@ -14,6 +14,7 @@ export default function Hero() {
           alt="5th Ave. Deli & Catering Co."
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         {/* Dark overlay for text readability */}

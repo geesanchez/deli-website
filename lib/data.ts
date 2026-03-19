@@ -34,12 +34,16 @@ export const businessInfo: BusinessInfo = {
   established: 1991,
   yelp: {
     rating: 4.4,
-    reviews: 195,
+    reviews: 203,
     url: "https://www.yelp.com/biz/5th-avenue-deli-and-catering-carmel-by-the-sea",
   },
   tripAdvisor: {
     rating: 4.9,
+    reviews: 8,
     url: "https://www.tripadvisor.com/Restaurant_Review-g32172-d878853-Reviews-5th_Avenue_Deli_Catering-Carmel_By_The_Sea_Monterey_County_California.html",
+  },
+  google: {
+    rating: 4.7,
   },
   social: {
     instagram: "https://www.instagram.com/5thavenuedeli/",

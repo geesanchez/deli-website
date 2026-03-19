@@ -136,6 +136,7 @@ function ContactForm() {
     phone: "",
     type: "General Inquiry",
     message: "",
+    website: "", // honeypot field — should remain empty for real users
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -167,7 +168,7 @@ function ContactForm() {
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", type: "General Inquiry", message: "" });
+      setFormData({ name: "", email: "", phone: "", type: "General Inquiry", message: "", website: "" });
     } catch {
       setStatus("error");
       setErrorMessage("Something went wrong. Please call us at (831) 625-2688.");
@@ -308,6 +309,23 @@ function ContactForm() {
               onChange={handleChange}
               placeholder="Tell us how we can help..."
               className={inputClasses + " resize-none"}
+            />
+          </div>
+
+          {/* Honeypot field — hidden from real users, catches bots */}
+          <div
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+          >
+            <label htmlFor="contact-website">Website</label>
+            <input
+              id="contact-website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.website}
+              onChange={handleChange}
             />
           </div>
 

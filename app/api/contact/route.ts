@@ -7,6 +7,7 @@ const contactSchema = z.object({
   phone: z.string().max(20).optional(),
   message: z.string().min(1, "Message is required").max(5000),
   type: z.string().max(50).optional(),
+  website: z.string().optional(), // honeypot field
 });
 
 // Simple in-memory rate limiter (per-IP, resets on deploy)
@@ -29,6 +30,20 @@ function isRateLimited(ip: string): boolean {
 
 export async function POST(request: Request) {
   try {
+    const body = await request.json();
+
+    // Honeypot check — if filled, it's a bot. Return fake success.
+    if (body.website) {
+      return NextResponse.json(
+        {
+          success: true,
+          message:
+            "Your inquiry has been received. We'll get back to you soon!",
+        },
+        { status: 200 }
+      );
+    }
+
     // Rate limiting
     const forwarded = request.headers.get("x-forwarded-for");
     const ip = forwarded?.split(",")[0]?.trim() ?? "unknown";
@@ -39,8 +54,6 @@ export async function POST(request: Request) {
         { status: 429 }
       );
     }
-
-    const body = await request.json();
 
     // Validate with Zod
     const result = contactSchema.safeParse(body);

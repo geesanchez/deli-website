@@ -53,6 +53,17 @@ export default function Reviews() {
                 </p>
               </div>
             </a>
+            <div className="flex items-center gap-3 rounded-full bg-cream px-6 py-3 border border-deli-border">
+              <div>
+                <p className="text-xs text-deli-text-light font-medium">Google</p>
+                <div className="flex items-center gap-2">
+                  <StarRating rating={businessInfo.google.rating} />
+                  <span className="text-sm font-semibold text-deli-text">
+                    {businessInfo.google.rating}
+                  </span>
+                </div>
+              </div>
+            </div>
             <a
               href={businessInfo.tripAdvisor.url}
               target="_blank"
@@ -94,7 +105,8 @@ export default function Reviews() {
                 &ldquo;{review.quote}&rdquo;
               </p>
               <cite className="not-italic text-xs text-deli-text-light font-medium">
-                — {review.source}
+                {review.author && <span className="text-deli-text">{review.author}</span>}
+                {review.author && " · "}{review.source}
               </cite>
             </motion.blockquote>
           ))}

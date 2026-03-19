@@ -47,7 +47,12 @@ export interface BusinessInfo {
   };
   tripAdvisor: {
     rating: number;
+    reviews: number;
     url: string;
+  };
+  google: {
+    rating: number;
+    reviews?: number;
   };
   social: {
     instagram: string;

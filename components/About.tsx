@@ -72,6 +72,7 @@ export default function About() {
                 alt="5th Ave. Deli & Catering Co. storefront in Carmel-by-the-Sea"
                 width={800}
                 height={600}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-full w-full object-cover"
               />
             </div>
