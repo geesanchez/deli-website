@@ -26,14 +26,13 @@ export default function Menu() {
         </div>
 
         {/* Tabs */}
-        <div className="mb-10 relative">
-          <div className="flex overflow-x-auto gap-2 pb-2 menu-tabs justify-start sm:justify-center">
-            {/* Scroll fade handled by CSS */}
+        <div className="mb-10">
+          <div className="flex flex-wrap justify-center gap-2">
             {menuCategories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveTab(category.id)}
-                className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
                   activeTab === category.id
                     ? "bg-deli-green text-white shadow-md"
                     : "bg-white text-deli-text-light hover:bg-deli-green/10 hover:text-deli-green border border-deli-border"
