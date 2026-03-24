@@ -54,21 +54,6 @@ export const businessInfo: BusinessInfo = {
 
 export const menuCategories: MenuCategory[] = [
   {
-    id: "soups",
-    label: "Homemade Soups",
-    description: "Rotating selection of hearty, homemade soups made fresh daily.",
-    items: [
-      { name: "Drunken' Chili", description: "A bold, hearty chili with a kick", price: "Ask for today's selection" },
-      { name: "Chicken Noodle", description: "Classic comfort — tender chicken, egg noodles, and fresh vegetables", price: "Ask for today's selection" },
-      { name: "Chicken Pozole", description: "Traditional Mexican soup with hominy, chicken, and warm spices", price: "Ask for today's selection" },
-      { name: "Tuscan White Bean with Ham", description: "Creamy white beans, smoky ham, and Italian herbs", price: "Ask for today's selection" },
-      { name: "Butternut Squash", description: "Velvety roasted butternut squash, lightly spiced", price: "Ask for today's selection" },
-      { name: "Italian Wedding", description: "Meatballs, escarole, and pasta in a savory broth", price: "Ask for today's selection" },
-      { name: "Jambalaya", description: "Spicy Cajun-style soup with sausage, chicken, and rice", price: "Ask for today's selection" },
-      { name: "Creamy Potato", description: "Rich and creamy loaded potato soup", price: "Ask for today's selection" },
-    ],
-  },
-  {
     id: "specialty",
     label: "Specialty Sandwiches",
     description: "All specialty sandwiches are served on sliced bread.",
