@@ -8,8 +8,7 @@ import GiftBaskets from "@/components/GiftBaskets";
 import Reviews from "@/components/Reviews";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
-import { Phone } from "lucide-react";
-import { businessInfo } from "@/lib/data";
+import StickyCallButton from "@/components/StickyCallButton";
 
 export default function Home() {
   return (
@@ -26,15 +25,7 @@ export default function Home() {
         <Location />
       </main>
       <Footer />
-
-      {/* Sticky mobile phone CTA */}
-      <a
-        href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 md:hidden flex items-center gap-2 rounded-full bg-deli-green px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-deli-green-light transition-colors"
-      >
-        <Phone className="h-4 w-4" />
-        Call to Order
-      </a>
+      <StickyCallButton />
     </>
   );
 }
