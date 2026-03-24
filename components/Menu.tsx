@@ -26,8 +26,9 @@ export default function Menu() {
         </div>
 
         {/* Tabs */}
-        <div className="mb-10">
+        <div className="mb-10 relative">
           <div className="flex overflow-x-auto gap-2 pb-2 menu-tabs justify-start sm:justify-center">
+            {/* Scroll fade handled by CSS */}
             {menuCategories.map((category) => (
               <button
                 key={category.id}

@@ -85,18 +85,18 @@ export default function Catering() {
         {/* CTA */}
         <div className="text-center">
           <a
-            href={`mailto:${businessInfo.email}?subject=Catering Inquiry`}
+            href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
             className="inline-block rounded-full bg-deli-gold px-8 py-3.5 text-base font-semibold text-deli-green-dark hover:bg-deli-gold-light transition-colors shadow-lg"
           >
-            Request a Catering Quote
+            Call for Catering Quote
           </a>
           <p className="mt-4 text-cream-dark/60 text-sm">
-            Or call us at{" "}
+            Or email us at{" "}
             <a
-              href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
+              href={`mailto:${businessInfo.email}?subject=Catering Inquiry`}
               className="underline hover:text-white"
             >
-              {businessInfo.phone}
+              {businessInfo.email}
             </a>
           </p>
         </div>

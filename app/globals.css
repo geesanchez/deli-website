@@ -55,6 +55,14 @@ html {
   height: 0;
 }
 
+/* Scroll fade indicator for menu tabs on mobile */
+@media (max-width: 640px) {
+  .menu-tabs {
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+}
+
 /* Photo placeholder styling */
 .photo-placeholder {
   background-color: var(--color-cream-dark);

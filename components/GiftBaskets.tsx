@@ -50,18 +50,18 @@ export default function GiftBaskets() {
 
         <div className="text-center">
           <a
-            href={`mailto:${businessInfo.email}?subject=Gift Basket Order`}
+            href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
             className="inline-block rounded-full bg-deli-green px-8 py-3 text-sm font-semibold text-white hover:bg-deli-green-light transition-colors"
           >
-            Order a Gift Basket
+            Call to Order a Gift Basket
           </a>
           <p className="mt-3 text-deli-text-light text-sm">
             Custom baskets available for any budget.{" "}
             <a
-              href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
+              href={`mailto:${businessInfo.email}?subject=Gift Basket Order`}
               className="underline hover:text-deli-green"
             >
-              Call us
+              Email us
             </a>{" "}
             to discuss your order.
           </p>
