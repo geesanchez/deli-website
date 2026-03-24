@@ -107,13 +107,17 @@ export const menuCategories: MenuCategory[] = [
       { name: "Bagel", description: "With cream cheese, butter, or cream cheese & jelly", price: "$4.00–$5.50" },
       { name: "Toast", description: "2 slices of toast — your choice of sliced bread", price: "$3.50" },
       { name: "Hard Boiled Eggs", description: "Fresh hard boiled eggs", price: "$2.00" },
+      { name: "Pico de Gallo", description: "Add fresh pico de gallo to any item", price: "$1.50" },
+      { name: "Sour Cream", description: "Add sour cream to any item", price: "$1.50" },
     ],
   },
   {
     id: "sandwich-bar",
     label: "Sandwich Bar",
-    description: "Build your own — pick your bread, protein, and extras. Hot sandwiches available (allow extra time).",
+    description: "Build your own — pick your bread, protein, and extras. Hot sandwiches available (allow extra time). All items subject to availability.",
     items: [
+      { name: "Whole Sandwich", description: "Your choice of bread, meat, spreads & the works", price: "$10.00" },
+      { name: "Half Sandwich", description: "A smaller portion with the same great options", price: "$7.00" },
       { name: "Breads", description: "Whole wheat, white, sourdough, multigrain, marble rye, gluten free, bagel, or pita", price: "Included" },
       { name: "Roll Upgrade", description: "French, sesame, sourdough, Frencesi, or Dutch Crunch", price: "+$1.00" },
       { name: "Croissant Upgrade", description: "Upgrade your sandwich to a buttery croissant", price: "+$3.00" },
