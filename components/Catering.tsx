@@ -1,7 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Bus, Plane, Palette, Home, PartyPopper, Car } from "lucide-react";
 import { cateringServices, cateringHighlights, businessInfo } from "@/lib/data";
+
+const serviceIcons: Record<string, React.ReactNode> = {
+  "Bus Tours & Groups": <Bus className="w-8 h-8 text-deli-gold-light" />,
+  "Corporate Aircraft": <Plane className="w-8 h-8 text-deli-gold-light" />,
+  "Gallery Openings": <Palette className="w-8 h-8 text-deli-gold-light" />,
+  "Open Houses": <Home className="w-8 h-8 text-deli-gold-light" />,
+  "Private Events": <PartyPopper className="w-8 h-8 text-deli-gold-light" />,
+  "Delivery Available": <Car className="w-8 h-8 text-deli-gold-light" />,
+};
 
 export default function Catering() {
   return (
@@ -34,7 +44,7 @@ export default function Catering() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="rounded-xl bg-white/10 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/15 transition-colors"
             >
-              <span className="text-3xl mb-3 block">{service.icon}</span>
+              <span className="mb-3 block">{serviceIcons[service.title]}</span>
               <h3 className="font-heading text-lg font-semibold mb-2">
                 {service.title}
               </h3>
@@ -64,7 +74,6 @@ export default function Catering() {
                     </p>
                   </div>
                   <span className="text-deli-gold-light font-semibold text-sm whitespace-nowrap">
-                    {/* TODO: Replace placeholder catering prices */}
                     {item.price}
                   </span>
                 </div>

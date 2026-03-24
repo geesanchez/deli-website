@@ -46,7 +46,6 @@ export default function BoxLunches() {
                     </p>
                   </div>
                   <span className="text-deli-brown font-semibold text-sm whitespace-nowrap">
-                    {/* TODO: Replace placeholder box lunch prices */}
                     {item.price}
                   </span>
                 </div>

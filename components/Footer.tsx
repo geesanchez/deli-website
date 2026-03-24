@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { businessInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -110,7 +111,15 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {businessInfo.name}. All rights
             reserved.
           </p>
-          <p>{businessInfo.tagline}</p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <p>{businessInfo.tagline}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Gift } from "lucide-react";
 import { giftBaskets, businessInfo } from "@/lib/data";
 
 export default function GiftBaskets() {
@@ -32,7 +33,7 @@ export default function GiftBaskets() {
               className="bg-white rounded-xl p-6 border border-deli-border/50 text-center hover:shadow-md transition-shadow"
             >
               <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-cream flex items-center justify-center">
-                <span className="text-deli-gold text-2xl">&#127873;</span>
+                <Gift className="w-7 h-7 text-deli-gold" />
               </div>
               <h3 className="font-heading text-lg font-semibold text-deli-green-dark mb-2">
                 {basket.name}
@@ -41,7 +42,6 @@ export default function GiftBaskets() {
                 {basket.description}
               </p>
               <p className="text-deli-brown font-semibold text-sm">
-                {/* TODO: Replace placeholder gift basket prices */}
                 {basket.priceRange}
               </p>
             </motion.div>

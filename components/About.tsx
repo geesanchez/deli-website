@@ -2,19 +2,23 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { LeafyGreen, SlidersHorizontal, Truck } from "lucide-react";
 
 const features = [
   {
     title: "Fresh Daily",
     description: "Every sandwich, soup, and salad is made fresh in-house each morning with quality ingredients.",
+    icon: LeafyGreen,
   },
   {
     title: "Your Way",
     description: "Build your own sandwich at our sandwich bar, or choose from our menu of signature creations.",
+    icon: SlidersHorizontal,
   },
   {
     title: "We Deliver",
     description: "From picnic box lunches to full catering, we deliver throughout the Monterey Peninsula.",
+    icon: Truck,
   },
 ];
 
@@ -95,7 +99,7 @@ export default function About() {
               className="text-center"
             >
               <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-deli-green/10 flex items-center justify-center">
-                <div className="h-2 w-2 rounded-full bg-deli-green" />
+                <feature.icon className="h-5 w-5 text-deli-green" />
               </div>
               <h3 className="font-heading text-xl font-semibold text-deli-green-dark mb-2">
                 {feature.title}

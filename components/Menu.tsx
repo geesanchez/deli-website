@@ -73,7 +73,6 @@ export default function Menu() {
                       </p>
                     </div>
                     <span className="text-deli-brown font-semibold text-sm whitespace-nowrap">
-                      {/* TODO: Replace placeholder prices */}
                       {item.price}
                     </span>
                   </div>

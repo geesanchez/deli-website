@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { Resend } from "resend";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required").max(200),
@@ -64,10 +65,41 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Send email notification to e5thavedeli@yahoo.com
-    // TODO: Consider using Resend, SendGrid, or similar service
-    const { name, email, type } = result.data;
-    console.info(`[contact] Inquiry from ${name} <${email}> (${type ?? "general"})`);
+    const { name, email, phone, message, type } = result.data;
+
+    // Send email notification via Resend
+    if (!process.env.RESEND_API_KEY) {
+      console.error("[contact] RESEND_API_KEY is not configured");
+      return NextResponse.json(
+        {
+          error:
+            "Something went wrong. Please call us at (831) 625-2688.",
+        },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    await resend.emails.send({
+      from: "5th Ave Deli Website <onboarding@resend.dev>",
+      to: "e5thavedeli@yahoo.com",
+      replyTo: email,
+      subject: `New ${type ?? "General"} Inquiry from ${name}`,
+      text: [
+        `New inquiry from the website contact form:`,
+        ``,
+        `Name: ${name}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : null,
+        `Type: ${type ?? "General Inquiry"}`,
+        ``,
+        `Message:`,
+        message,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    });
 
     return NextResponse.json(
       {
