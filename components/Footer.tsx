@@ -4,7 +4,7 @@ import { businessInfo } from "@/lib/data";
 export default function Footer() {
   return (
     <footer className="bg-deli-green-dark text-cream-dark/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-24 md:pb-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pb-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
