@@ -1,25 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { businessInfo } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section className="relative pt-16 min-h-[85vh] flex items-center">
-      {/* Hero background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero.jpg"
-          alt="5th Ave. Deli & Catering Co."
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+    <section className="relative pt-16 min-h-[85vh] flex items-center bg-deli-green-dark">
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
         <motion.div
