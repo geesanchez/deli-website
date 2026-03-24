@@ -30,7 +30,7 @@ export default function Home() {
       {/* Sticky mobile phone CTA */}
       <a
         href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-        className="fixed bottom-4 right-4 z-40 md:hidden flex items-center gap-2 rounded-full bg-deli-green px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-deli-green-light transition-colors"
+        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 md:hidden flex items-center gap-2 rounded-full bg-deli-green px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-deli-green-light transition-colors"
       >
         <Phone className="h-4 w-4" />
         Call to Order
