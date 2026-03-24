@@ -29,7 +29,7 @@ export const businessInfo: BusinessInfo = {
     { day: "Thursday", hours: "8:00 AM – 5:00 PM" },
     { day: "Friday", hours: "8:00 AM – 5:00 PM" },
     { day: "Saturday", hours: "8:00 AM – 5:00 PM" },
-    { day: "Sunday", hours: "Call or ask in advance" },
+    { day: "Sunday", hours: "Closed" },
   ],
   established: 1991,
   yelp: {
