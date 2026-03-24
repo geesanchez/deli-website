@@ -53,7 +53,12 @@ export default function Reviews() {
                 </p>
               </div>
             </a>
-            <div className="flex items-center gap-3 rounded-full bg-cream px-6 py-3 border border-deli-border">
+            <a
+              href="https://www.google.com/maps/search/5th+Avenue+Deli+%26+Catering+Carmel-by-the-Sea+CA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-full bg-cream px-6 py-3 border border-deli-border hover:border-deli-green/30 transition-colors"
+            >
               <div>
                 <p className="text-xs text-deli-text-light font-medium">Google</p>
                 <div className="flex items-center gap-2">
@@ -63,7 +68,7 @@ export default function Reviews() {
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
             <a
               href={businessInfo.tripAdvisor.url}
               target="_blank"

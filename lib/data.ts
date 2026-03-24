@@ -35,20 +35,20 @@ export const businessInfo: BusinessInfo = {
   yelp: {
     rating: 4.4,
     reviews: 203,
-    url: "https://www.yelp.com/biz/5th-avenue-deli-and-catering-carmel-by-the-sea",
+    url: "https://www.yelp.com/biz/fifth-avenue-deli-and-catering-carmel-by-the-sea",
   },
   tripAdvisor: {
     rating: 4.9,
     reviews: 8,
-    url: "https://www.tripadvisor.com/Restaurant_Review-g32172-d878853-Reviews-5th_Avenue_Deli_Catering-Carmel_By_The_Sea_Monterey_County_California.html",
+    url: "https://www.tripadvisor.com/Restaurant_Review-g32172-d1905763-Reviews-5th_Ave_Deli_Catering-Carmel_Monterey_County_California.html",
   },
   google: {
     rating: 4.7,
   },
   social: {
     instagram: "https://www.instagram.com/5thavenuedeli/",
-    facebook: "https://www.facebook.com/5thAveDeli/",
-    yelp: "https://www.yelp.com/biz/5th-avenue-deli-and-catering-carmel-by-the-sea",
+    facebook: "https://www.facebook.com/pages/5th-Avenue-Deli/169048739810952",
+    yelp: "https://www.yelp.com/biz/fifth-avenue-deli-and-catering-carmel-by-the-sea",
   },
 };
 

@@ -17,6 +17,16 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    // Wait for menu close animation to finish before scrolling
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-deli-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -98,7 +108,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleMobileNavClick(e, link.href)}
                   className="block text-base font-medium text-deli-text-light hover:text-deli-green transition-colors"
                 >
                   {link.label}
