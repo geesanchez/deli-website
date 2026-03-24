@@ -8,7 +8,7 @@ export default function BoxLunches() {
   if (!boxLunchCategory) return null;
 
   return (
-    <section id="box-lunches" className="py-20 bg-white">
+    <section id="box-lunches" aria-labelledby="boxlunch-heading" className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Content */}
@@ -18,10 +18,10 @@ export default function BoxLunches() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
+            <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
               Beach Day?
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
+            <h2 id="boxlunch-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
               Grab a Picnic Box
             </h2>
             <p className="text-deli-text-light mb-8 leading-relaxed">

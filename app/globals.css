@@ -40,6 +40,36 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
+/* Focus indicators (WCAG 2.4.7) */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 4px;
+  left: 4px;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-green-dark);
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  z-index: 100;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), Georgia, serif;
 }
@@ -80,6 +110,16 @@ html {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Photo placeholder styling */

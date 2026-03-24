@@ -9,14 +9,14 @@ export default function Menu() {
   const activeCategory = menuCategories.find((c) => c.id === activeTab)!;
 
   return (
-    <section id="menu" className="py-20 bg-cream">
+    <section id="menu" aria-labelledby="menu-heading" className="py-20 bg-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-12">
-          <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
+          <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
             What&apos;s Fresh
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
+          <h2 id="menu-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
             Our Menu
           </h2>
           <p className="text-deli-text-light max-w-2xl mx-auto">
@@ -27,10 +27,14 @@ export default function Menu() {
 
         {/* Tabs */}
         <div className="mb-10">
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Menu categories">
             {menuCategories.map((category) => (
               <button
                 key={category.id}
+                role="tab"
+                aria-selected={activeTab === category.id}
+                aria-controls={`panel-${category.id}`}
+                id={`tab-${category.id}`}
                 onClick={() => setActiveTab(category.id)}
                 className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
                   activeTab === category.id
@@ -48,6 +52,9 @@ export default function Menu() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
+            role="tabpanel"
+            id={`panel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -83,7 +90,7 @@ export default function Menu() {
         </AnimatePresence>
 
         {/* Disclaimer */}
-        <p className="text-center mt-10 text-xs text-warm-gray">
+        <p className="text-center mt-10 text-xs text-deli-text-light">
           Prices and items may vary. Call{" "}
           <a href="tel:8316252688" className="underline hover:text-deli-green">
             (831) 625-2688

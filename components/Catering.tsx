@@ -15,15 +15,15 @@ const serviceIcons: Record<string, React.ReactNode> = {
 
 export default function Catering() {
   return (
-    <section id="catering" className="py-20 bg-deli-green-dark text-white">
+    <section id="catering" aria-labelledby="catering-heading" className="py-20 bg-deli-green-dark text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-deli-gold-light font-medium tracking-widest uppercase text-sm mb-3">
             Events & Catering
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
-            Let Us Cater
+          <h2 id="catering-heading" className="font-heading text-4xl sm:text-5xl font-bold mb-4">
+            Let Us Cater{" "}
             <span className="block text-deli-gold-light">Your Next Event</span>
           </h2>
           <p className="text-cream-dark/80 max-w-2xl mx-auto">

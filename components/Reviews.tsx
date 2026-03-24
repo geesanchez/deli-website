@@ -42,14 +42,14 @@ function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
 
 export default function Reviews() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section aria-labelledby="reviews-heading" className="py-20 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
+          <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
             What People Say
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-6">
-            Loved by Locals & Visitors
+          <h2 id="reviews-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-6">
+            Loved by Locals &amp; Visitors
           </h2>
 
           {/* Rating badges */}
@@ -58,6 +58,7 @@ export default function Reviews() {
               href={businessInfo.yelp.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Yelp — ${businessInfo.yelp.rating} stars, ${businessInfo.yelp.reviews} reviews (opens in new tab)`}
               className="flex items-center gap-3 rounded-full bg-cream px-6 py-3 border border-deli-border hover:border-deli-green/30 transition-colors"
             >
               <div>
@@ -77,6 +78,7 @@ export default function Reviews() {
               href="https://www.google.com/maps/search/5th+Avenue+Deli+%26+Catering+Carmel-by-the-Sea+CA"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Google — ${businessInfo.google.rating} stars (opens in new tab)`}
               className="flex items-center gap-3 rounded-full bg-cream px-6 py-3 border border-deli-border hover:border-deli-green/30 transition-colors"
             >
               <div>
@@ -93,6 +95,7 @@ export default function Reviews() {
               href={businessInfo.tripAdvisor.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`TripAdvisor — ${businessInfo.tripAdvisor.rating} stars (opens in new tab)`}
               className="flex items-center gap-3 rounded-full bg-cream px-6 py-3 border border-deli-border hover:border-deli-green/30 transition-colors"
             >
               <div>
@@ -110,7 +113,7 @@ export default function Reviews() {
       </div>
 
       {/* Marquee scroll */}
-      <div className="group hover:[animation-play-state:paused]">
+      <div role="region" aria-roledescription="carousel" aria-label="Customer reviews" className="group hover:[animation-play-state:paused]">
         <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused]">
           {reviews.map((review, i) => (
             <ReviewCard key={`a-${i}`} review={review} />

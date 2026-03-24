@@ -25,7 +25,7 @@ const features = [
 export default function About() {
   const yearsOpen = new Date().getFullYear() - 1991;
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" aria-labelledby="about-heading" className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text content */}
@@ -35,11 +35,11 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
+            <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
               Our Story
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-6">
-              {yearsOpen} Years on
+            <h2 id="about-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-6">
+              {yearsOpen} Years on{" "}
               <span className="block text-deli-brown">5th Avenue</span>
             </h2>
             <div className="space-y-4 text-deli-text-light leading-relaxed">

@@ -140,7 +140,10 @@ export default function RootLayout({
       <head>
         <LocalBusinessSchema />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        {children}
+      </body>
     </html>
   );
 }

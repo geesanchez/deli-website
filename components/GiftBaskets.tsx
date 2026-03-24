@@ -6,13 +6,13 @@ import { giftBaskets, businessInfo } from "@/lib/data";
 
 export default function GiftBaskets() {
   return (
-    <section id="gift-baskets" className="py-20 bg-cream">
+    <section id="gift-baskets" aria-labelledby="giftbasket-heading" className="py-20 bg-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
+          <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
             The Perfect Gift
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
+          <h2 id="giftbasket-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
             Gourmet Gift Baskets
           </h2>
           <p className="text-deli-text-light max-w-2xl mx-auto">

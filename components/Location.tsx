@@ -15,13 +15,13 @@ export default function Location() {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.8!2d-121.9233!3d36.5558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808de45270a8775b%3A0x91d4daa9e41420a0!2s5th%20Avenue%20Deli%20%26%20Catering!5e0!3m2!1sen!2sus!4v1";
 
   return (
-    <section id="location" className="py-20 bg-cream">
+    <section id="location" aria-labelledby="location-heading" className="py-20 bg-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
+          <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
             Visit Us
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
+          <h2 id="location-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-4">
             Find Us on 5th Avenue
           </h2>
           <p className="text-deli-text-light">

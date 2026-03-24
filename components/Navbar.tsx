@@ -28,6 +28,7 @@ export default function Navbar() {
   };
 
   return (
+    <header>
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-deli-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -56,7 +57,7 @@ export default function Navbar() {
             ))}
             <a
               href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-              className="rounded-full bg-deli-green px-4 py-2 text-sm font-medium text-white hover:bg-deli-green-light transition-colors"
+              className="rounded-full bg-deli-green px-5 py-2.5 text-sm font-medium text-white hover:bg-deli-green-light transition-colors"
             >
               Call to Order
             </a>
@@ -67,6 +68,8 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden p-2.5 text-deli-text"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             <svg
               className="h-6 w-6"
@@ -101,6 +104,7 @@ export default function Navbar() {
             initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
             animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
             exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            id="mobile-nav"
             className="md:hidden border-t border-deli-border bg-cream"
           >
             <div className="px-4 py-4 space-y-3">
@@ -125,5 +129,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </nav>
+    </header>
   );
 }
