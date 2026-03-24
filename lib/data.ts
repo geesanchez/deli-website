@@ -40,7 +40,7 @@ export const businessInfo: BusinessInfo = {
   tripAdvisor: {
     rating: 4.9,
     reviews: 8,
-    url: "https://www.tripadvisor.com/Restaurant_Review-g32172-d1905763-Reviews-5th_Ave_Deli_Catering-Carmel_Monterey_County_California.html",
+    url: "https://www.tripadvisor.com/Restaurant_Review-g32172-d23292980-Reviews-5th_Avenue_Deli-Carmel_Monterey_County_California.html",
   },
   google: {
     rating: 4.7,
