@@ -23,6 +23,7 @@ const features = [
 ];
 
 export default function About() {
+  const yearsOpen = new Date().getFullYear() - 1991;
   return (
     <section id="about" className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -38,7 +39,7 @@ export default function About() {
               Our Story
             </p>
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-6">
-              34 Years on
+              {yearsOpen} Years on
               <span className="block text-deli-brown">5th Avenue</span>
             </h2>
             <div className="space-y-4 text-deli-text-light leading-relaxed">
@@ -81,7 +82,7 @@ export default function About() {
               />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-deli-green rounded-xl px-6 py-4 shadow-lg hidden sm:block">
-              <p className="font-heading text-3xl font-bold text-white">34</p>
+              <p className="font-heading text-3xl font-bold text-white">{yearsOpen}</p>
               <p className="text-cream-dark/90 text-sm">Years of<br />delicious food</p>
             </div>
           </motion.div>

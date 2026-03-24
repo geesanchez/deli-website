@@ -65,7 +65,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-deli-text"
+            className="md:hidden p-2.5 text-deli-text"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             <svg
@@ -98,10 +98,10 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-deli-border bg-cream overflow-hidden"
+            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            className="md:hidden border-t border-deli-border bg-cream"
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
@@ -109,7 +109,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleMobileNavClick(e, link.href)}
-                  className="block text-base font-medium text-deli-text-light hover:text-deli-green transition-colors"
+                  className="block py-3 text-base font-medium text-deli-text-light hover:text-deli-green transition-colors"
                 >
                   {link.label}
                 </a>

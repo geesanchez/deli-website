@@ -28,7 +28,7 @@ export default function Catering() {
           </h2>
           <p className="text-cream-dark/80 max-w-2xl mx-auto">
             From intimate gallery openings to corporate aircraft catering at
-            Monterey Peninsula Airport — we bring 34 years of deli excellence to
+            Monterey Peninsula Airport — we bring {new Date().getFullYear() - 1991} years of deli excellence to
             every event.
           </p>
         </div>
