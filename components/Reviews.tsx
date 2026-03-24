@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { reviews, businessInfo } from "@/lib/data";
 
 function StarRating({ rating }: { rating: number }) {
@@ -20,9 +19,30 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
+function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
+  return (
+    <blockquote className="w-[320px] sm:w-[380px] shrink-0 bg-cream rounded-xl p-6 border border-deli-border/50">
+      <svg
+        className="h-8 w-8 text-deli-green/20 mb-3"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
+      </svg>
+      <p className="text-deli-text leading-relaxed text-sm mb-4">
+        &ldquo;{review.quote}&rdquo;
+      </p>
+      <cite className="not-italic text-xs text-deli-text-light font-medium">
+        {review.author && <span className="text-deli-text">{review.author}</span>}
+        {review.author && " · "}{review.source}
+      </cite>
+    </blockquote>
+  );
+}
+
 export default function Reviews() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-deli-gold font-medium tracking-widest uppercase text-sm mb-3">
@@ -87,33 +107,17 @@ export default function Reviews() {
             </a>
           </div>
         </div>
+      </div>
 
-        {/* Review quotes */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {/* Marquee scroll */}
+      <div className="group hover:[animation-play-state:paused]">
+        <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused]">
           {reviews.map((review, i) => (
-            <motion.blockquote
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-cream rounded-xl p-6 border border-deli-border/50"
-            >
-              <svg
-                className="h-8 w-8 text-deli-green/20 mb-3"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
-              </svg>
-              <p className="text-deli-text leading-relaxed text-sm mb-4">
-                &ldquo;{review.quote}&rdquo;
-              </p>
-              <cite className="not-italic text-xs text-deli-text-light font-medium">
-                {review.author && <span className="text-deli-text">{review.author}</span>}
-                {review.author && " · "}{review.source}
-              </cite>
-            </motion.blockquote>
+            <ReviewCard key={`a-${i}`} review={review} />
+          ))}
+          {/* Duplicate for seamless loop */}
+          {reviews.map((review, i) => (
+            <ReviewCard key={`b-${i}`} review={review} />
           ))}
         </div>
       </div>
