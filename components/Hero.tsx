@@ -5,7 +5,7 @@ import { businessInfo } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section className="relative pt-16 min-h-[85vh] flex items-center bg-deli-green-dark">
+    <section aria-labelledby="hero-heading" className="relative pt-16 min-h-[85vh] flex items-center bg-deli-green-dark">
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
         <motion.div
@@ -16,7 +16,7 @@ export default function Hero() {
           <p className="mb-4 text-deli-gold-light font-medium tracking-widest uppercase text-sm">
             Est. {businessInfo.established} &middot; Carmel-by-the-Sea
           </p>
-          <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 id="hero-heading" className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             5th Ave. Deli
             <span className="block text-3xl sm:text-4xl lg:text-5xl font-normal mt-2 text-cream-dark">
               {" "}& Catering Co.

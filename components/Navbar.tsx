@@ -57,7 +57,7 @@ export default function Navbar() {
             ))}
             <a
               href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-              className="rounded-full bg-deli-green px-5 py-2.5 text-sm font-medium text-white hover:bg-deli-green-light transition-colors"
+              className="rounded-full bg-deli-green px-5 py-3 text-sm font-medium text-white hover:bg-deli-green-light transition-colors"
             >
               Call to Order
             </a>
