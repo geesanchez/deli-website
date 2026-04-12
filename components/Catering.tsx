@@ -80,7 +80,7 @@ export default function Catering() {
               className="rounded-xl bg-white/10 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/15 transition-colors"
             >
               <span className="mb-3 block">{serviceIcons[service.title]}</span>
-              <h3 className="font-heading text-lg font-semibold mb-2">
+              <h3 className="font-heading text-xl font-extrabold mb-2">
                 {service.title}
               </h3>
               <p className="text-cream-dark/70 text-sm leading-relaxed">
@@ -128,7 +128,7 @@ export default function Catering() {
                 <div key={item.name} className="p-4 rounded-lg bg-white/5">
                   <div className="flex justify-between items-start gap-3">
                     <div>
-                      <h4 className="font-semibold text-sm">{item.name}</h4>
+                      <h4 className="font-bold text-base">{item.name}</h4>
                       <p className="text-cream-dark/60 text-xs mt-1">
                         {item.description}
                       </p>
