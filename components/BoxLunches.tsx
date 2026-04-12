@@ -46,7 +46,7 @@ export default function BoxLunches() {
         <div className="mt-16 text-center">
           <a
             href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-block bg-deli-green text-white hover:bg-deli-green-light px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+            className="inline-block bg-deli-green text-white hover:bg-deli-green-light px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
           >
             Call to Order Box Lunches
           </a>

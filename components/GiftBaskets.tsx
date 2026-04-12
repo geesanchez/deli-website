@@ -47,7 +47,7 @@ export default function GiftBaskets() {
         <div className="text-center">
           <a
             href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-block bg-deli-gold text-deli-green-dark hover:bg-deli-gold-light px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+            className="inline-block bg-deli-gold text-deli-green-dark hover:bg-deli-gold-light px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
           >
             Call to Order a Gift Basket
           </a>
