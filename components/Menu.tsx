@@ -79,7 +79,7 @@ export default function Menu() {
                         {item.description}
                       </p>
                     </div>
-                    <span className="text-deli-brown font-semibold text-sm whitespace-nowrap">
+                    <span className="bg-deli-gold text-deli-green-dark px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap">
                       {item.price}
                     </span>
                   </div>

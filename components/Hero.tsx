@@ -1,11 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { businessInfo } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="relative pt-16 min-h-[85vh] flex items-center bg-deli-green-dark">
+    <section aria-labelledby="hero-heading" className="relative pt-16 min-h-[85vh] flex items-center bg-deli-green-dark overflow-hidden">
+      <Image
+        src="/images/storefront.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-10"
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-center">
         <motion.div

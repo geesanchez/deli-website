@@ -37,9 +37,9 @@ export default function Navbar() {
             <Image
               src="/images/logo.png"
               alt="5th Ave Deli & Catering Co."
-              width={120}
-              height={40}
-              className="h-10 w-auto"
+              width={140}
+              height={48}
+              className="h-12 w-auto rounded-full shadow-md"
               priority
             />
           </a>
@@ -101,11 +101,12 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
-            exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
             id="mobile-nav"
-            className="md:hidden border-t border-deli-border bg-cream"
+            className="md:hidden border-t border-deli-border bg-cream overflow-hidden"
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (

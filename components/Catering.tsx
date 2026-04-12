@@ -1,8 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Bus, Plane, Palette, Home, PartyPopper, Car } from "lucide-react";
 import { cateringServices, cateringHighlights, businessInfo } from "@/lib/data";
+
+const galleryPhotos = [
+  { src: "/images/IMG_4408.jpeg", alt: "Smoked salmon and lox platter with cream cheese, capers, and fresh lemon" },
+  { src: "/images/IMG_4415.jpeg", alt: "Golden spanakopita and phyllo pastry tray" },
+  { src: "/images/IMG_4359(1).jpeg", alt: "Pinwheel wrap platter with assorted fillings" },
+  { src: "/images/IMG_4351.jpeg", alt: "Charcuterie board with cured meats, cheeses, and crackers" },
+];
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "Bus Tours & Groups": <Bus className="w-8 h-8 text-deli-gold-light" />,
@@ -15,7 +23,7 @@ const serviceIcons: Record<string, React.ReactNode> = {
 
 export default function Catering() {
   return (
-    <section id="catering" aria-labelledby="catering-heading" className="py-20 bg-deli-green-dark text-white">
+    <section id="catering" aria-labelledby="catering-heading" className="pt-20 pb-10 bg-deli-green-dark text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -31,6 +39,29 @@ export default function Catering() {
             Monterey Peninsula Airport — we bring {new Date().getFullYear() - 1991} years of deli excellence to
             every event.
           </p>
+        </div>
+
+        {/* Photo gallery */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
+          {galleryPhotos.map((photo, i) => (
+            <motion.div
+              key={photo.src}
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="overflow-hidden rounded-2xl aspect-[4/3] group"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={800}
+                height={600}
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </motion.div>
+          ))}
         </div>
 
         {/* Service cards */}
@@ -73,7 +104,7 @@ export default function Catering() {
                       {item.description}
                     </p>
                   </div>
-                  <span className="text-deli-gold-light font-semibold text-sm whitespace-nowrap">
+                  <span className="bg-deli-gold/20 text-deli-gold-light border border-deli-gold/30 px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap">
                     {item.price}
                   </span>
                 </div>

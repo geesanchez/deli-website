@@ -25,7 +25,7 @@ const features = [
 export default function About() {
   const yearsOpen = new Date().getFullYear() - 1991;
   return (
-    <section id="about" aria-labelledby="about-heading" className="py-20 bg-white">
+    <section id="about" aria-labelledby="about-heading" className="py-20 bg-deli-green-dark text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text content */}
@@ -35,14 +35,14 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
+            <p className="text-deli-gold-light font-medium tracking-widest uppercase text-sm mb-3">
               Our Story
             </p>
-            <h2 id="about-heading" className="font-heading text-4xl sm:text-5xl font-bold text-deli-green-dark mb-6">
+            <h2 id="about-heading" className="font-heading text-4xl sm:text-5xl font-bold text-white mb-6">
               {yearsOpen} Years on{" "}
-              <span className="block text-deli-brown">5th Avenue</span>
+              <span className="block text-deli-gold-light">5th Avenue</span>
             </h2>
-            <div className="space-y-4 text-deli-text-light leading-relaxed">
+            <div className="space-y-4 text-cream-dark/80 leading-relaxed">
               <p>
                 Since 1991, 5th Ave. Deli & Catering Co. has been a beloved
                 fixture in Carmel-by-the-Sea — tucked just two doors up from the
@@ -81,9 +81,9 @@ export default function About() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-deli-green rounded-xl px-6 py-4 shadow-lg hidden sm:block">
-              <p className="font-heading text-3xl font-bold text-white">{yearsOpen}</p>
-              <p className="text-cream-dark/90 text-sm">Years of<br />delicious food</p>
+            <div className="absolute -bottom-6 -left-6 bg-deli-gold rounded-xl px-6 py-4 shadow-lg hidden sm:block">
+              <p className="font-heading text-3xl font-bold text-deli-green-dark">{yearsOpen}</p>
+              <p className="text-deli-green-dark/80 text-sm">Years of<br />delicious food</p>
             </div>
           </motion.div>
         </div>
@@ -99,13 +99,13 @@ export default function About() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="text-center"
             >
-              <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-deli-green/10 flex items-center justify-center">
-                <feature.icon className="h-5 w-5 text-deli-green" />
+              <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
+                <feature.icon className="h-5 w-5 text-deli-gold-light" />
               </div>
-              <h3 className="font-heading text-xl font-semibold text-deli-green-dark mb-2">
+              <h3 className="font-heading text-xl font-semibold text-white mb-2">
                 {feature.title}
               </h3>
-              <p className="text-deli-text-light text-sm leading-relaxed">
+              <p className="text-cream-dark/70 text-sm leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>

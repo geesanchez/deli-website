@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="font-heading text-xl font-bold text-white mb-2">
+            <h3 className="font-heading text-xl font-bold text-deli-gold-light mb-2">
               5th Ave. Deli
             </h3>
             <p className="text-sm leading-relaxed mb-4">
@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-3">
+            <h4 className="font-heading text-sm font-semibold text-deli-gold-light uppercase tracking-wider mb-3">
               Hours
             </h4>
             <div className="space-y-1 text-sm">
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-3">
+            <h4 className="font-heading text-sm font-semibold text-deli-gold-light uppercase tracking-wider mb-3">
               Contact
             </h4>
             <div className="space-y-1 text-sm">
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* Address */}
           <div>
-            <h4 className="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-3">
+            <h4 className="font-heading text-sm font-semibold text-deli-gold-light uppercase tracking-wider mb-3">
               Location
             </h4>
             <div className="text-sm leading-relaxed">

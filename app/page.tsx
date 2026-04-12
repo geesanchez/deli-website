@@ -8,7 +8,7 @@ import GiftBaskets from "@/components/GiftBaskets";
 import Reviews from "@/components/Reviews";
 import Location from "@/components/Location";
 import Footer from "@/components/Footer";
-import StickyCallButton from "@/components/StickyCallButton";
+
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
         <Location />
       </main>
       <Footer />
-      <StickyCallButton />
+
     </>
   );
 }
