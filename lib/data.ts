@@ -94,6 +94,7 @@ export const menuCategories: MenuCategory[] = [
       { name: "Hard Boiled Eggs", description: "Fresh hard boiled eggs", price: "$2.00" },
       { name: "Pico de Gallo", description: "Add fresh pico de gallo to any item", price: "$1.50" },
       { name: "Sour Cream", description: "Add sour cream to any item", price: "$1.50" },
+      { name: "Other Breakfast Items", description: "Fruit salad, muffins, pound cake, brownies, cookies, coffee cake, PB&J, apricot oat cakes, low fat fruit bar, fresh brewed coffee, hot chocolate, milk, hot tea & fruit juices", price: "Varies" },
     ],
   },
   {
@@ -126,12 +127,146 @@ export const menuCategories: MenuCategory[] = [
       { name: "Deluxe Picnic", description: "Curry sandwich with lettuce & tomatoes, green salad, chocolate cake or carrot cake & a drink", price: "$25.99" },
     ],
   },
+  {
+    id: "salads",
+    label: "Homemade Salads",
+    description: "Made fresh in-house daily. Available by the pound or as a side.",
+    items: [
+      { name: "Caesar Salad", description: "Romaine, parmesan, croutons, red onions & sliced lemons (extra charge for chicken)", price: "Market" },
+      { name: "Coleslaw", description: "Red & green cabbage, apples, carrots, sugar, fresh dill & mayonnaise", price: "Market" },
+      { name: "Garden Salad w/ Veggies", description: "Green leaf, romaine & baby greens tossed with veggies (dressing on side)", price: "Market" },
+      { name: "Old Fashioned Potato Salad", description: "Red potatoes, eggs, celery, onions, parsley, mustard, mayonnaise & salt", price: "Market" },
+      { name: "Orzo Pasta Salad", description: "Orzo pasta, broccoli, peppers, black olives, red onions, sliced tomatoes & red wine vinaigrette", price: "Market" },
+      { name: "Macaroni & Cheese Salad", description: "Elbow pasta, peppers, celery, red onions, shredded cheese, ranch dressing & mayonnaise", price: "Market" },
+      { name: "Broccoli Salad", description: "Broccoli florets, red grapes, onions, sugar, sunflower seeds, bacon bits & mayonnaise", price: "Market" },
+      { name: "Greek Salad", description: "Tomatoes, peppers, red onions, cucumbers, olives, basil, feta cheese & Italian vinaigrette", price: "Market" },
+      { name: "Sesame Noodle Salad", description: "Noodles, carrots, hoisin sauce, olive oil, sesame seeds, soy sauce, cilantro & green onions", price: "Market" },
+      { name: "Curried Chicken Salad", description: "Celery, raisins, green apples, red onions, mayonnaise & curry powder", price: "Market" },
+      { name: "Tarragon Chicken Salad", description: "Tarragon, carrots, celery, red bell peppers, red onions, mayonnaise & Dijon", price: "Market" },
+      { name: "Tabouli Salad", description: "Bulgar wheat, parsley, green onions, tomatoes, cucumbers, mint, lemon juice & olive oil", price: "Market" },
+      { name: "Egg Salad", description: "Hard boiled eggs, celery, fresh dill, mayonnaise & sweet pickle relish", price: "Market" },
+      { name: "Pesto Pasta Salad", description: "Bow tie pasta, pesto, bell peppers, parmesan cheese, spinach, black olives & lemon", price: "Market" },
+    ],
+  },
 ];
 
+export interface CateringSection {
+  id: string;
+  label: string;
+  description?: string;
+  items: { name: string; description: string; price: string }[];
+}
+
+export const cateringMenu: CateringSection[] = [
+  {
+    id: "catering-breakfast",
+    label: "Breakfast",
+    description: "Tray sizes: 12\" (5–7 people) and 16\" (10–12 people).",
+    items: [
+      { name: "Fresh Pastries", description: "Mini Danish, flaky croissants, muffins & more (48-hour notice)", price: "$45 / $90" },
+      { name: "Lox & Bagel", description: "Cream cheese, smoked salmon, cucumbers, tomato, capers, red onions & lemon garnish", price: "$90 / $150" },
+      { name: "Bagel with Cream Cheese", description: "Fresh bagels with cream cheese", price: "$50 / $100" },
+      { name: "Whole Homemade Quiche", description: "Lorraine or spinach, pre-sliced, served hot or cold", price: "$60" },
+      { name: "Fresh Fruit", description: "Oranges, melons, pineapple, grapes, strawberries & more", price: "$50 / $75" },
+      { name: "Breakfast Burritos", description: "Veggie or meat (ham, bacon, sausage, or chorizo) with eggs, cheese, salsa & potatoes", price: "$8 whole / $5 mini" },
+      { name: "Individual Yogurts", description: "Regular or Greek — assorted flavors", price: "$3 each" },
+      { name: "Fresh Brewed Coffee/Hot Tea", description: "Regular or decaf, assorted tea bags", price: "$35 (10 people)" },
+      { name: "Juices", description: "Orange, apple, grapefruit, lemonade & more", price: "$3 each" },
+    ],
+  },
+  {
+    id: "catering-lunch",
+    label: "Lunch",
+    description: "Tray sizes: 12\" (5–7 people) and 16\" (10–12 people).",
+    items: [
+      { name: "Create Your Own Sandwiches", description: "Meats, cheeses, condiments & assorted bread — turkey, roast beef, ham, pastrami, tuna & more", price: "$60 / $120" },
+      { name: "Traditional Deli Sandwiches", description: "Cut into quarters or halves with toothpicks", price: "$60 / $120" },
+      { name: "Assorted Wraps", description: "Assorted tortillas with meat and cheese", price: "$60 / $120" },
+      { name: "Finger Sandwiches", description: "Smaller portion deli sandwiches — assorted meats, or tuna & egg salad (does not include cheese)", price: "$40 / $80" },
+      { name: "Assorted Chips", description: "Frito Lays, Kettle, Stacy's, Miss Vickie's, Sun Chips & Dirty Chips", price: "Market" },
+    ],
+  },
+  {
+    id: "catering-appetizers",
+    label: "Appetizers",
+    description: "12\" tray (8–10 people) and 16\" tray (18–20 people).",
+    items: [
+      { name: "Charcuterie", description: "Assorted meats, cheeses, breads, crackers, nuts & a dip", price: "$75 / $140" },
+      { name: "Sliced Fresh Fruit", description: "Berries, melon, grapes & more", price: "$50 / $75" },
+      { name: "Crisp Veggies", description: "Arranged with ranch or honey mustard dips", price: "$50 / $75" },
+      { name: "Assorted Cheeses", description: "Includes crackers — Brie, Havarti, sharp cheddar & more", price: "$65 / $100" },
+      { name: "Deviled Eggs", description: "Halves, filled & garnished with baby dill", price: "30 pcs $45 / 50 pcs $75" },
+      { name: "Black Forest Ham", description: "Slices thin, wrapped over bite-size melon wedges", price: "30 pcs $45 / 55 pcs $85" },
+      { name: "Shrimp Platter", description: "Medium prawns, tail on, with cocktail sauce & lemon wedges", price: "30 pcs $55 / 55 pcs $85" },
+      { name: "Smoked Salmon Bites", description: "On toast crackers with cream cheese and dill", price: "25 pcs $40 / 50 pcs $85" },
+      { name: "Curried Chicken Salad", description: "In a sourdough bread bowl with crackers & bread", price: "3 lb $75" },
+      { name: "Pinwheels", description: "Assorted mini lavash bread with cream cheese", price: "40 pcs $55 / 80 pcs $95" },
+      { name: "Snack Platter", description: "Tortilla chips, homemade salsa & guacamole", price: "$45 / $80" },
+    ],
+  },
+  {
+    id: "catering-warm-appetizers",
+    label: "Warm Appetizers",
+    items: [
+      { name: "Spanakopita", description: "Flaky triangle phyllo dough filled with spinach, feta cheese & spices", price: "50 pcs $75" },
+      { name: "Meatballs", description: "Made with either marinara sauce or BBQ", price: "100 pcs $65" },
+      { name: "Mini Quiches", description: "Delicious fresh baked to order — Lorraine or spinach", price: "24 pcs $60" },
+      { name: "Mini Pigs in a Blanket", description: "All beef hot dog, hand rolled in a puffy pastry", price: "50 pcs $75" },
+      { name: "Chicken Apple Sausages", description: "Cocktail serving, grilled and sliced — served hot or cold", price: "100 pcs $65" },
+      { name: "Chicken Quesadilla", description: "Chicken, jack cheese, peppers & cilantro on a flour tortilla", price: "$35 / $75" },
+      { name: "Bruschetta", description: "Tomatoes, basil, red onions, parmesan cheese & olive oil", price: "$50 / $75" },
+    ],
+  },
+  {
+    id: "catering-entrees",
+    label: "Entrées",
+    items: [
+      { name: "Whole Quiche", description: "Lorraine or spinach — served warm or cold, sliced if needed", price: "$60" },
+      { name: "Veggie Lasagna", description: "Layers of broccoli, carrots, spinach & cheeses topped with marinara sauce", price: "$75" },
+      { name: "Meat Lasagna", description: "Sausage, ground beef, marinara sauce, provolone & parmesan cheese", price: "$90" },
+      { name: "Chicken Enchilada Casserole", description: "Layers of corn tortillas, jack & cheddar cheese, mushrooms & cream sauce", price: "$85" },
+      { name: "California Casserole", description: "Beef, noodles, olives, mushrooms, bell peppers, onions & tomato sauce", price: "$85" },
+      { name: "Stuffed Baked Potatoes", description: "Homemade baked potatoes topped with cheddar cheese & green onions (sour cream extra)", price: "$60 / 10 count" },
+      { name: "Spaghetti & Meatballs", description: "Prepared with a rich marinara sauce & topped with parmesan cheese", price: "$85 (8 lb)" },
+    ],
+  },
+  {
+    id: "catering-desserts",
+    label: "Desserts",
+    items: [
+      { name: "Fresh Baked Cookies", description: "Assorted — chocolate chip, oatmeal, peanut butter & more", price: "24 cookies $55" },
+      { name: "Petit Fours", description: "Assorted bite-size cakes — please call 24–48 hours in advance", price: "Market" },
+      { name: "Chocolate Dipped Strawberries", description: "Please call 24–48 hours in advance", price: "Market" },
+      { name: "Deluxe Dessert Sampler", description: "Our most popular! Cakes, fresh cookies, dessert bars, macaroons & more", price: "$45 / $90" },
+    ],
+  },
+  {
+    id: "catering-salads",
+    label: "Homemade Salads",
+    items: [
+      { name: "Caesar Salad", description: "Romaine, parmesan, croutons, red onions & sliced lemons (extra charge for chicken)", price: "Market" },
+      { name: "Coleslaw", description: "Red & green cabbage, apples, carrots, sugar, fresh dill & mayonnaise", price: "Market" },
+      { name: "Garden Salad w/ Veggies", description: "Green leaf, romaine & baby greens, tossed with veggies (dressing on side)", price: "Market" },
+      { name: "Old Fashioned Potato Salad", description: "Red potatoes, eggs, celery, onions, parsley, mustard, mayonnaise & salt", price: "Market" },
+      { name: "Orzo Pasta Salad", description: "Orzo pasta, broccoli, peppers, black olives, red onions, sliced tomatoes & red wine vinaigrette", price: "Market" },
+      { name: "Macaroni & Cheese Salad", description: "Elbow pasta, peppers, celery, red onions, shredded cheese, ranch dressing & mayonnaise", price: "Market" },
+      { name: "Broccoli Salad", description: "Broccoli florets, red grapes, onions, sugar, sunflower seeds, bacon bits & mayonnaise", price: "Market" },
+      { name: "Greek Salad", description: "Tomatoes, peppers, red onions, cucumbers, olives, basil, feta cheese & Italian vinaigrette", price: "Market" },
+      { name: "Sesame Noodle Salad", description: "Noodles, carrots, hoisin sauce, olive oil, sesame seeds, soy sauce, cilantro, green onions & lemon juice", price: "Market" },
+      { name: "Curried Chicken Salad", description: "Celery, raisins, green apples, red onions, mayonnaise & curry powder", price: "Market" },
+      { name: "Tarragon Chicken Salad", description: "Tarragon, carrots, celery, red bell peppers, red onions, mayonnaise, black pepper & Dijon", price: "Market" },
+      { name: "Tabouli Salad", description: "Bulgar wheat, parsley, green onions, tomatoes, cucumbers, mint, lemon juice, salt & pepper & olive oil", price: "Market" },
+      { name: "Egg Salad", description: "Hard boiled eggs, celery, fresh dill, mayonnaise & sweet pickle relish", price: "Market" },
+      { name: "Pesto Pasta Salad", description: "Bow tie pasta, pesto, bell peppers, parmesan cheese, spinach, black olives & lemon", price: "Market" },
+    ],
+  },
+];
+
+// Keep a highlights version for the main catering section display
 export const cateringHighlights: MenuCategory = {
   id: "catering",
   label: "Catering Menu",
-  description: "Full-service catering for any occasion. Tray sizes: 12-inch (5–7 people) and 16-inch (10–12 people).",
+  description: "Full-service catering for any occasion. Tray sizes: 12\" (5–7 people) and 16\" (10–12 people).",
   items: [
     { name: "Traditional Deli Sandwiches", description: "Cut into quarters or halves with toothpicks", price: "$60 / $120" },
     { name: "Charcuterie Board", description: "Assorted meats, cheeses, breads, crackers, nuts & a dip", price: "$75 / $140" },

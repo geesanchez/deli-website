@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Bus, Plane, Palette, Home, PartyPopper, Car } from "lucide-react";
-import { cateringServices, cateringHighlights, businessInfo } from "@/lib/data";
+import { cateringServices, cateringMenu } from "@/lib/data";
 
 const galleryPhotos = [
   { src: "/images/IMG_4408.jpeg", alt: "Smoked salmon and lox platter with cream cheese, capers, and fresh lemon" },
@@ -22,6 +23,9 @@ const serviceIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Catering() {
+  const [activeTab, setActiveTab] = useState(0);
+  const activeSection = cateringMenu[activeTab];
+
   return (
     <section id="catering" aria-labelledby="catering-heading" className="pt-12 pb-4 bg-deli-green-dark text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -86,30 +90,56 @@ export default function Catering() {
           ))}
         </div>
 
-        {/* Catering menu highlights */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-12">
-          <h3 className="font-heading text-2xl font-bold text-center mb-2">
-            Catering Menu Highlights
-          </h3>
-          <p className="text-center text-cream-dark/70 text-sm mb-8">
-            {cateringHighlights.description}
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cateringHighlights.items.map((item) => (
-              <div key={item.name} className="p-4 rounded-lg bg-white/5">
-                <div className="flex justify-between items-start gap-3">
-                  <div>
-                    <h4 className="font-semibold text-sm">{item.name}</h4>
-                    <p className="text-cream-dark/60 text-xs mt-1">
-                      {item.description}
-                    </p>
+        {/* Full Catering Menu */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 mb-12 overflow-hidden">
+          <div className="p-6 pb-0">
+            <h3 className="font-heading text-2xl font-bold text-center mb-2">
+              Full Catering Menu
+            </h3>
+            <p className="text-center text-cream-dark/70 text-sm mb-6">
+              Tray sizes: 12&quot; (5–7 people) and 16&quot; (10–12 people). Prices subject to change.
+            </p>
+
+            {/* Tabs */}
+            <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide -mx-2 px-2">
+              {cateringMenu.map((section, i) => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(i)}
+                  className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    activeTab === i
+                      ? "bg-deli-gold text-deli-green-dark"
+                      : "bg-white/10 text-cream-dark/70 hover:bg-white/20 hover:text-white"
+                  }`}
+                >
+                  {section.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Active section items */}
+          <div className="p-6 pt-4">
+            {activeSection.description && (
+              <p className="text-cream-dark/60 text-xs mb-4">{activeSection.description}</p>
+            )}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {activeSection.items.map((item) => (
+                <div key={item.name} className="p-4 rounded-lg bg-white/5">
+                  <div className="flex justify-between items-start gap-3">
+                    <div>
+                      <h4 className="font-semibold text-sm">{item.name}</h4>
+                      <p className="text-cream-dark/60 text-xs mt-1">
+                        {item.description}
+                      </p>
+                    </div>
+                    <span className="bg-deli-gold/20 text-deli-gold-light border border-deli-gold/30 px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+                      {item.price}
+                    </span>
                   </div>
-                  <span className="bg-deli-gold/20 text-deli-gold-light border border-deli-gold/30 px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap">
-                    {item.price}
-                  </span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

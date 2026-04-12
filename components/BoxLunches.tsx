@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { menuCategories, businessInfo } from "@/lib/data";
+import { menuCategories } from "@/lib/data";
 
 export default function BoxLunches() {
   const boxLunchCategory = menuCategories.find((c) => c.id === "box-lunches");

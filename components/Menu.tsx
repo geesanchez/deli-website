@@ -72,7 +72,7 @@ export default function Menu() {
                 >
                   <div className="flex justify-between items-start gap-4">
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-heading text-lg font-semibold text-deli-green-dark">
+                      <h3 className="font-heading text-xl font-extrabold text-deli-green-dark">
                         {item.name}
                       </h3>
                       <p className="text-deli-text-light text-sm mt-1 leading-relaxed">
