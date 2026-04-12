@@ -47,16 +47,14 @@ export const metadata: Metadata = {
     siteName: "5th Ave Deli & Catering Co.",
     locale: "en_US",
     type: "website",
-    // TODO: Add og:image once real photos are ready
-    // images: [{ url: "https://5thavedeli.com/og-image.jpg", width: 1200, height: 630, alt: "5th Ave Deli & Catering Co." }],
+    images: [{ url: "https://5thavedeli.com/images/og-image.jpg", width: 1200, height: 630, alt: "5th Ave Deli & Catering Co. — Carmel-by-the-Sea Since 1991" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "5th Ave Deli & Catering Co. | Carmel-by-the-Sea",
     description:
       "Family-owned since 1991. Fresh sandwiches, picnic box lunches, and full catering in Carmel-by-the-Sea.",
-    // TODO: Add twitter:image once real photos are ready
-    // images: ["https://5thavedeli.com/twitter-card.jpg"],
+    images: ["https://5thavedeli.com/images/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -72,8 +70,7 @@ function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: businessInfo.name,
-    // TODO: Add real restaurant photos
-    image: ["https://5thavedeli.com/restaurant.jpg"],
+    image: ["https://5thavedeli.com/images/og-image.jpg"],
     url: "https://5thavedeli.com",
     telephone: businessInfo.phone,
     email: businessInfo.email,
