@@ -4,6 +4,7 @@ import type {
   Review,
   CateringService,
   GiftBasketOption,
+  CateringSection,
 } from "@/types";
 
 export const businessInfo: BusinessInfo = {
@@ -150,13 +151,6 @@ export const menuCategories: MenuCategory[] = [
   },
 ];
 
-export interface CateringSection {
-  id: string;
-  label: string;
-  description?: string;
-  items: { name: string; description: string; price: string }[];
-}
-
 export const cateringMenu: CateringSection[] = [
   {
     id: "catering-breakfast",
@@ -207,6 +201,7 @@ export const cateringMenu: CateringSection[] = [
   {
     id: "catering-warm-appetizers",
     label: "Warm Appetizers",
+    description: "Hot passed appetizers and oven-baked bites — perfect for cocktail hours and receptions.",
     items: [
       { name: "Spanakopita", description: "Flaky triangle phyllo dough filled with spinach, feta cheese & spices", price: "50 pcs $75" },
       { name: "Meatballs", description: "Made with either marinara sauce or BBQ", price: "100 pcs $65" },

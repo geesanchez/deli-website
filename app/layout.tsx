@@ -102,9 +102,10 @@ function LocalBusinessSchema() {
         closes: "17:00",
       },
     ],
+    "openingHoursTimezone": "America/Los_Angeles",
     priceRange: "$",
     servesCuisine: ["American", "Deli", "Sandwiches", "Catering"],
-    hasMenu: "https://5thavedeli.com/#menu",
+    hasMenu: "https://5thavedeli.com",
     acceptsReservations: "False",
     aggregateRating: {
       "@type": "AggregateRating",

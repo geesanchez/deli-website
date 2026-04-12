@@ -124,13 +124,9 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     type: "General Inquiry",
     message: "",
-    website: "", // honeypot field — should remain empty for real users
   });
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -138,32 +134,13 @@ function ContactForm() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus("submitting");
-    setErrorMessage("");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setStatus("error");
-        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
-        return;
-      }
-
-      setStatus("success");
-      setFormData({ name: "", email: "", phone: "", type: "General Inquiry", message: "", website: "" });
-    } catch {
-      setStatus("error");
-      setErrorMessage("Something went wrong. Please call us at (831) 625-2688.");
-    }
+    const subject = encodeURIComponent(`${formData.type} from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nInquiry Type: ${formData.type}\n\n${formData.message}`
+    );
+    window.location.href = `mailto:${businessInfo.email}?subject=${subject}&body=${body}`;
   }
 
   const inputClasses =
@@ -182,160 +159,90 @@ function ContactForm() {
           Send Us a Message
         </h3>
         <p className="text-deli-text-light text-sm">
-          Questions about catering, box lunches, or gift baskets? We&apos;d love to hear from you.
+          Questions about catering, box lunches, or gift baskets? Fill out the form and your email app will open with your message ready to send.
         </p>
       </div>
 
-      {status === "success" ? (
-        <div className="mx-auto max-w-2xl rounded-2xl border border-deli-green/30 bg-deli-green/5 p-8 text-center">
-          <svg
-            className="mx-auto mb-4 h-12 w-12 text-deli-green"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <h4 className="font-heading text-xl font-semibold text-deli-green-dark mb-2">
-            Message Sent!
-          </h4>
-          <p className="text-deli-text-light text-sm">
-            Thank you for reaching out. We&apos;ll get back to you soon!
-          </p>
-          <button
-            onClick={() => setStatus("idle")}
-            className="mt-4 text-sm font-medium text-deli-green hover:text-deli-green-dark transition-colors underline underline-offset-2"
-          >
-            Send another message
-          </button>
-        </div>
-      ) : (
-        <form
-          onSubmit={handleSubmit}
-          className="mx-auto max-w-2xl rounded-2xl border border-deli-border bg-white p-6 sm:p-8 shadow-sm"
-        >
-          <div className="grid sm:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label htmlFor="contact-name" className="block text-sm font-medium text-deli-text mb-1">
-                Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                className={inputClasses}
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-email" className="block text-sm font-medium text-deli-text mb-1">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                id="contact-email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="you@example.com"
-                className={inputClasses}
-              />
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label htmlFor="contact-phone" className="block text-sm font-medium text-deli-text mb-1">
-                Phone <span className="text-deli-text-light/60 text-xs">(optional)</span>
-              </label>
-              <input
-                id="contact-phone"
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="(831) 555-1234"
-                className={inputClasses}
-              />
-            </div>
-            <div>
-              <label htmlFor="contact-type" className="block text-sm font-medium text-deli-text mb-1">
-                Inquiry Type
-              </label>
-              <select
-                id="contact-type"
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-                className={inputClasses}
-              >
-                {inquiryTypes.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <label htmlFor="contact-message" className="block text-sm font-medium text-deli-text mb-1">
-              Message <span className="text-red-500">*</span>
+      <form
+        onSubmit={handleSubmit}
+        className="mx-auto max-w-2xl rounded-2xl border border-deli-border bg-white p-6 sm:p-8 shadow-sm"
+      >
+        <div className="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label htmlFor="contact-name" className="block text-sm font-medium text-deli-text mb-1">
+              Name <span className="text-red-500">*</span>
             </label>
-            <textarea
-              id="contact-message"
-              name="message"
-              required
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Tell us how we can help..."
-              className={inputClasses + " resize-none"}
-            />
-          </div>
-
-          {/* Honeypot field — hidden from real users, catches bots */}
-          <div
-            aria-hidden="true"
-            style={{ position: "absolute", left: "-9999px", opacity: 0 }}
-          >
-            <label htmlFor="contact-website">Website</label>
             <input
-              id="contact-website"
-              name="website"
+              id="contact-name"
+              name="name"
               type="text"
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-              value={formData.website}
+              required
+              aria-required="true"
+              value={formData.name}
               onChange={handleChange}
+              placeholder="Your name"
+              className={inputClasses}
             />
           </div>
+          <div>
+            <label htmlFor="contact-email" className="block text-sm font-medium text-deli-text mb-1">
+              Your Email
+            </label>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              className={inputClasses}
+            />
+          </div>
+        </div>
 
-          {status === "error" && (
-            <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-              {errorMessage}
-            </div>
-          )}
-
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="w-full rounded-lg bg-deli-green px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-deli-green-dark focus:ring-2 focus:ring-deli-green focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        <div className="mb-4">
+          <label htmlFor="contact-type" className="block text-sm font-medium text-deli-text mb-1">
+            Inquiry Type
+          </label>
+          <select
+            id="contact-type"
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+            className={inputClasses}
           >
-            {status === "submitting" ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-      )}
+            {inquiryTypes.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="mb-6">
+          <label htmlFor="contact-message" className="block text-sm font-medium text-deli-text mb-1">
+            Message <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
+            required
+            aria-required="true"
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Tell us how we can help..."
+            className={inputClasses + " resize-none"}
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full rounded-lg bg-deli-green px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-deli-green-dark focus:ring-2 focus:ring-deli-green focus:ring-offset-2 transition-colors"
+        >
+          Open Email to Send
+        </button>
+      </form>
     </motion.div>
   );
 }

@@ -24,7 +24,7 @@ const serviceIcons: Record<string, React.ReactNode> = {
 
 export default function Catering() {
   const [activeTab, setActiveTab] = useState(0);
-  const activeSection = cateringMenu[activeTab];
+  const activeSection = cateringMenu[activeTab] ?? cateringMenu[0];
 
   return (
     <section id="catering" aria-labelledby="catering-heading" className="pt-12 pb-4 bg-deli-green-dark text-white">
@@ -101,10 +101,16 @@ export default function Catering() {
             </p>
 
             {/* Tabs */}
-            <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide -mx-2 px-2">
+            <div className="flex gap-2 overflow-x-auto pb-3 -mx-2 px-2" style={{ scrollbarWidth: "none" }} role="tablist" aria-label="Catering menu categories">
               {cateringMenu.map((section, i) => (
                 <button
                   key={section.id}
+                  type="button"
+                  role="tab"
+                  id={`catering-tab-${section.id}`}
+                  aria-selected={activeTab === i}
+                  aria-controls={`catering-panel-${section.id}`}
+                  tabIndex={activeTab === i ? 0 : -1}
                   onClick={() => setActiveTab(i)}
                   className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     activeTab === i
@@ -119,7 +125,7 @@ export default function Catering() {
           </div>
 
           {/* Active section items */}
-          <div className="p-6 pt-4">
+          <div className="p-6 pt-4" role="tabpanel" id={`catering-panel-${activeSection.id}`} aria-labelledby={`catering-tab-${activeSection.id}`}>
             {activeSection.description && (
               <p className="text-cream-dark/60 text-xs mb-4">{activeSection.description}</p>
             )}

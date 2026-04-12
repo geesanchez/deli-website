@@ -72,3 +72,10 @@ export interface GiftBasketOption {
   description: string;
   priceRange: string;
 }
+
+export interface CateringSection {
+  id: string;
+  label: string;
+  description?: string;
+  items: { name: string; description: string; price: string }[];
+}
