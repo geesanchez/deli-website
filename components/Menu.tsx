@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { menuCategories } from "@/lib/data";
 
 export default function Menu() {
-  const [activeTab, setActiveTab] = useState(menuCategories[0].id);
-  const activeCategory = menuCategories.find((c) => c.id === activeTab) ?? menuCategories[0];
+  const [activeTab, setActiveTab] = useState(menuCategories[0]!.id);
+  const activeCategory = menuCategories.find((c) => c.id === activeTab) ?? menuCategories[0]!;
 
   return (
     <section id="menu" aria-labelledby="menu-heading" className="py-12 bg-cream">

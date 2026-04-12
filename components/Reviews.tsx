@@ -113,7 +113,7 @@ export default function Reviews() {
       </div>
 
       {/* Marquee scroll */}
-      <div role="region" aria-roledescription="carousel" aria-label="Customer reviews" className="relative">
+      <div role="region" aria-roledescription="carousel" aria-label="Customer reviews" aria-live="polite" className="relative">
         <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused]">
           {reviews.map((review, i) => (
             <ReviewCard key={`a-${i}`} review={review} />

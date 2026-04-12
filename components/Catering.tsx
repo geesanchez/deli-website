@@ -24,7 +24,7 @@ const serviceIcons: Record<string, React.ReactNode> = {
 
 export default function Catering() {
   const [activeTab, setActiveTab] = useState(0);
-  const activeSection = cateringMenu[activeTab] ?? cateringMenu[0];
+  const activeSection = cateringMenu[activeTab] ?? cateringMenu[0]!;
 
   return (
     <section id="catering" aria-labelledby="catering-heading" className="pt-12 pb-4 bg-deli-green-dark text-white">

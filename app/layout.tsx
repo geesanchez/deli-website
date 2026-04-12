@@ -24,6 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://5thavedeli.com"),
   title: "5th Ave Deli & Catering Co. | Carmel-by-the-Sea Since 1991",
   description:
     "5th Ave Deli & Catering Co. — Carmel's family-owned deli since 1991. Fresh sandwiches, soups, picnic box lunches, and full catering. Open Mon-Sat 8am-5pm.",
