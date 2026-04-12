@@ -8,9 +8,9 @@ export default function BoxLunches() {
   if (!boxLunchCategory) return null;
 
   return (
-    <section id="box-lunches" aria-labelledby="boxlunch-heading" className="py-20 bg-deli-green/10">
+    <section id="box-lunches" aria-labelledby="boxlunch-heading" className="py-12 bg-deli-green/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
             Beach Day?
           </p>
@@ -41,15 +41,6 @@ export default function BoxLunches() {
               <p className="text-deli-text-light leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <a
-            href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-block bg-deli-green text-white hover:bg-deli-green-light px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
-          >
-            Call to Order Box Lunches
-          </a>
         </div>
       </div>
     </section>

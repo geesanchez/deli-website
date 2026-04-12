@@ -9,7 +9,7 @@ export default function Menu() {
   const activeCategory = menuCategories.find((c) => c.id === activeTab)!;
 
   return (
-    <section id="menu" aria-labelledby="menu-heading" className="py-20 bg-cream">
+    <section id="menu" aria-labelledby="menu-heading" className="py-12 bg-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-12">
@@ -91,11 +91,7 @@ export default function Menu() {
 
         {/* Disclaimer */}
         <p className="text-center mt-10 text-xs text-deli-text-light">
-          Prices and items may vary. Call{" "}
-          <a href="tel:8316252688" className="underline hover:text-deli-green">
-            (831) 625-2688
-          </a>{" "}
-          to confirm today&apos;s menu and specials.
+          Prices and items may vary. Call to confirm today&apos;s menu and specials.
         </p>
       </div>
     </section>

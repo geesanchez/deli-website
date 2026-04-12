@@ -15,7 +15,7 @@ export default function Location() {
   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.8!2d-121.9233!3d36.5558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808de45270a8775b%3A0x91d4daa9e41420a0!2s5th%20Avenue%20Deli%20%26%20Catering!5e0!3m2!1sen!2sus!4v1";
 
   return (
-    <section id="location" aria-labelledby="location-heading" className="py-20 bg-cream">
+    <section id="location" aria-labelledby="location-heading" className="py-12 bg-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
@@ -108,15 +108,6 @@ export default function Location() {
                   </svg>
                   <span className="text-sm">{businessInfo.phone}</span>
                 </a>
-                <a
-                  href={`mailto:${businessInfo.email}`}
-                  className="flex items-center gap-3 text-deli-text-light hover:text-deli-green transition-colors"
-                >
-                  <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-sm">{businessInfo.email}</span>
-                </a>
               </div>
             </div>
           </motion.div>
@@ -184,7 +175,7 @@ function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="mt-16"
+      className="mt-12"
     >
       <div className="text-center mb-8">
         <h3 className="font-heading text-2xl sm:text-3xl font-bold text-deli-green-dark mb-2">

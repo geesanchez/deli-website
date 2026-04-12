@@ -23,10 +23,10 @@ const serviceIcons: Record<string, React.ReactNode> = {
 
 export default function Catering() {
   return (
-    <section id="catering" aria-labelledby="catering-heading" className="pt-20 pb-10 bg-deli-green-dark text-white">
+    <section id="catering" aria-labelledby="catering-heading" className="pt-12 pb-4 bg-deli-green-dark text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <p className="text-deli-gold-light font-medium tracking-widest uppercase text-sm mb-3">
             Events & Catering
           </p>
@@ -42,7 +42,7 @@ export default function Catering() {
         </div>
 
         {/* Photo gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
           {galleryPhotos.map((photo, i) => (
             <motion.div
               key={photo.src}
@@ -65,7 +65,7 @@ export default function Catering() {
         </div>
 
         {/* Service cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {cateringServices.map((service, i) => (
             <motion.div
               key={service.title}
@@ -111,25 +111,6 @@ export default function Catering() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <a
-            href={`tel:${businessInfo.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-block rounded-full bg-deli-gold px-8 py-3.5 text-base font-semibold text-deli-green-dark hover:bg-deli-gold-light transition-colors shadow-lg"
-          >
-            Call for Catering Quote
-          </a>
-          <p className="mt-4 text-cream-dark/60 text-sm">
-            Or email us at{" "}
-            <a
-              href={`mailto:${businessInfo.email}?subject=Catering Inquiry`}
-              className="underline hover:text-white"
-            >
-              {businessInfo.email}
-            </a>
-          </p>
         </div>
       </div>
     </section>

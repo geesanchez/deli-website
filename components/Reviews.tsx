@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Pause, Play } from "lucide-react";
 import { reviews, businessInfo } from "@/lib/data";
 
 function StarRating({ rating }: { rating: number }) {
@@ -43,10 +41,8 @@ function ReviewCard({ review }: { review: (typeof reviews)[number] }) {
 }
 
 export default function Reviews() {
-  const [paused, setPaused] = useState(false);
-
   return (
-    <section aria-labelledby="reviews-heading" className="py-20 bg-white overflow-hidden">
+    <section aria-labelledby="reviews-heading" className="py-12 bg-white overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-deli-brown font-medium tracking-widest uppercase text-sm mb-3">
@@ -118,16 +114,7 @@ export default function Reviews() {
 
       {/* Marquee scroll */}
       <div role="region" aria-roledescription="carousel" aria-label="Customer reviews" className="relative">
-        <div className="flex justify-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3">
-          <button
-            onClick={() => setPaused(!paused)}
-            aria-label={paused ? "Play review carousel" : "Pause review carousel"}
-            className="p-2 rounded-full border border-deli-border hover:border-deli-green/30 text-deli-text-light hover:text-deli-green transition-colors"
-          >
-            {paused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-          </button>
-        </div>
-        <div className={`flex gap-6 animate-marquee ${paused ? "[animation-play-state:paused]" : "hover:[animation-play-state:paused]"}`}>
+        <div className="flex gap-6 animate-marquee hover:[animation-play-state:paused]">
           {reviews.map((review, i) => (
             <ReviewCard key={`a-${i}`} review={review} />
           ))}

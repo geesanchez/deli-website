@@ -76,14 +76,6 @@ export default function Footer() {
                   {businessInfo.phone}
                 </a>
               </p>
-              <p>
-                <a
-                  href={`mailto:${businessInfo.email}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {businessInfo.email}
-                </a>
-              </p>
             </div>
           </div>
 

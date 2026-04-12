@@ -25,7 +25,7 @@ const features = [
 export default function About() {
   const yearsOpen = new Date().getFullYear() - 1991;
   return (
-    <section id="about" aria-labelledby="about-heading" className="py-20 bg-deli-green-dark text-white">
+    <section id="about" aria-labelledby="about-heading" className="py-12 bg-deli-green-dark text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text content */}
@@ -89,7 +89,7 @@ export default function About() {
         </div>
 
         {/* Feature cards */}
-        <div className="mt-20 grid sm:grid-cols-3 gap-8">
+        <div className="mt-12 grid sm:grid-cols-3 gap-8">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
