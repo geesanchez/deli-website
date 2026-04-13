@@ -64,16 +64,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://5thavedeli.com",
   },
+  other: {
+    "geo.region": "US-CA",
+    "geo.placename": "Carmel-by-the-Sea",
+    "geo.position": "36.5558;-121.9233",
+    "ICBM": "36.5558, -121.9233",
+  },
 };
 
 function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
+    "@id": "https://5thavedeli.com/#organization",
     name: businessInfo.name,
     image: ["https://5thavedeli.com/images/og-image.jpg"],
     url: "https://5thavedeli.com",
-    telephone: businessInfo.phone,
+    telephone: "+1-831-625-2688",
     email: businessInfo.email,
     address: {
       "@type": "PostalAddress",
@@ -91,22 +98,20 @@ function LocalBusinessSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         opens: "08:00",
         closes: "17:00",
       },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Sunday"],
+        opens: "00:00",
+        closes: "00:00",
+      },
     ],
-    "openingHoursTimezone": "America/Los_Angeles",
     priceRange: "$",
     servesCuisine: ["American", "Deli", "Sandwiches", "Catering"],
-    hasMenu: "https://5thavedeli.com",
+    hasMenu: "https://5thavedeli.com/#menu",
     acceptsReservations: "False",
     aggregateRating: {
       "@type": "AggregateRating",
@@ -114,6 +119,18 @@ function LocalBusinessSchema() {
       reviewCount: businessInfo.yelp.reviews,
       bestRating: 5,
     },
+    sameAs: [
+      businessInfo.social.instagram,
+      businessInfo.social.facebook,
+      businessInfo.social.yelp,
+    ],
+    areaServed: [
+      { "@type": "City", name: "Carmel-by-the-Sea" },
+      { "@type": "City", name: "Monterey" },
+      { "@type": "City", name: "Pacific Grove" },
+      { "@type": "City", name: "Pebble Beach" },
+    ],
+    paymentAccepted: "Cash, Credit Card",
     description:
       "Family-owned gourmet deli in Carmel-by-the-Sea since 1991. Fresh sandwiches, homemade soups, salads, picnic box lunches perfect for Carmel Beach, full catering services, and custom gift baskets.",
     foundingDate: "1991",
