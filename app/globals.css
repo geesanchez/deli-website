@@ -3,9 +3,9 @@
 :root {
   --color-cream: #FAF7F2;
   --color-cream-dark: #F0EBE1;
-  --color-green: #2D5A3D;
-  --color-green-light: #3A7A52;
-  --color-green-dark: #1E3D2A;
+  --color-green: #4A2028;
+  --color-green-light: #6B3040;
+  --color-green-dark: #3A1018;
   --color-brown: #6B4226;
   --color-brown-light: #8B6240;
   --color-warm-gray: #7A7267;
@@ -34,7 +34,8 @@
   --font-body: var(--font-inter);
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -60,6 +61,7 @@ body {
   overflow: hidden;
   z-index: 100;
 }
+
 .skip-link:focus {
   position: fixed;
   top: 4px;
@@ -74,7 +76,12 @@ body {
   z-index: 100;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading), Georgia, serif;
 }
 
@@ -102,6 +109,7 @@ html {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -121,6 +129,7 @@ html {
   .animate-marquee {
     animation: none !important;
   }
+
   html {
     scroll-behavior: auto;
   }
