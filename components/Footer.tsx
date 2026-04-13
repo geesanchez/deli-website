@@ -57,7 +57,7 @@ export default function Footer() {
               Hours
             </h4>
             <div className="space-y-1 text-sm">
-              <p>Mon – Sat: 8am – 5pm</p>
+              <p>Mon – Sat: 8am – 4:30pm</p>
               <p>Sun: Closed</p>
             </div>
           </div>
