@@ -121,7 +121,6 @@ function LocalBusinessSchema() {
     },
     sameAs: [
       businessInfo.social.instagram,
-      businessInfo.social.facebook,
       businessInfo.social.yelp,
     ],
     areaServed: [
