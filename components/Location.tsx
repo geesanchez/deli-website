@@ -124,9 +124,13 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     type: "General Inquiry",
     message: "",
+    website: "",
   });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -134,13 +138,32 @@ function ContactForm() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`${formData.type} from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nInquiry Type: ${formData.type}\n\n${formData.message}`
-    );
-    window.location.href = `mailto:${businessInfo.email}?subject=${subject}&body=${body}`;
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", type: "General Inquiry", message: "", website: "" });
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please call us at (831) 625-2688.");
+    }
   }
 
   const inputClasses =
@@ -159,10 +182,26 @@ function ContactForm() {
           Send Us a Message
         </h3>
         <p className="text-deli-text-light text-sm">
-          Questions about catering, box lunches, or gift baskets? Fill out the form and your email app will open with your message ready to send.
+          Questions about catering, box lunches, or gift baskets? We&apos;d love to hear from you.
         </p>
       </div>
 
+      {status === "success" ? (
+        <div className="mx-auto max-w-2xl rounded-2xl border border-deli-green/30 bg-deli-green/5 p-8 text-center">
+          <h4 className="font-heading text-xl font-semibold text-deli-green-dark mb-2">
+            Message Sent!
+          </h4>
+          <p className="text-deli-text-light text-sm">
+            Thank you for reaching out. We&apos;ll get back to you soon!
+          </p>
+          <button
+            onClick={() => setStatus("idle")}
+            className="mt-4 text-sm font-medium text-deli-green hover:text-deli-green-dark transition-colors underline underline-offset-2"
+          >
+            Send another message
+          </button>
+        </div>
+      ) : (
       <form
         onSubmit={handleSubmit}
         className="mx-auto max-w-2xl rounded-2xl border border-deli-border bg-white p-6 sm:p-8 shadow-sm"
@@ -186,12 +225,14 @@ function ContactForm() {
           </div>
           <div>
             <label htmlFor="contact-email" className="block text-sm font-medium text-deli-text mb-1">
-              Your Email
+              Email <span className="text-red-500">*</span>
             </label>
             <input
               id="contact-email"
               name="email"
               type="email"
+              required
+              aria-required="true"
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
@@ -200,23 +241,39 @@ function ContactForm() {
           </div>
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="contact-type" className="block text-sm font-medium text-deli-text mb-1">
-            Inquiry Type
-          </label>
-          <select
-            id="contact-type"
-            name="type"
-            value={formData.type}
-            onChange={handleChange}
-            className={inputClasses}
-          >
-            {inquiryTypes.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
+        <div className="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label htmlFor="contact-phone" className="block text-sm font-medium text-deli-text mb-1">
+              Phone <span className="text-deli-text-light/60 text-xs">(optional)</span>
+            </label>
+            <input
+              id="contact-phone"
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="(831) 555-1234"
+              className={inputClasses}
+            />
+          </div>
+          <div>
+            <label htmlFor="contact-type" className="block text-sm font-medium text-deli-text mb-1">
+              Inquiry Type
+            </label>
+            <select
+              id="contact-type"
+              name="type"
+              value={formData.type}
+              onChange={handleChange}
+              className={inputClasses}
+            >
+              {inquiryTypes.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         <div className="mb-6">
@@ -236,13 +293,36 @@ function ContactForm() {
           />
         </div>
 
+        {/* Honeypot — hidden from real users */}
+        <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0 }}>
+          <label htmlFor="contact-website">Website</label>
+          <input
+            id="contact-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            value={formData.website}
+            onChange={handleChange}
+          />
+        </div>
+
+        {status === "error" && (
+          <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
+            {errorMessage}
+          </div>
+        )}
+
         <button
           type="submit"
-          className="w-full rounded-lg bg-deli-green px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-deli-green-dark focus:ring-2 focus:ring-deli-green focus:ring-offset-2 transition-colors"
+          disabled={status === "submitting"}
+          className="w-full rounded-lg bg-deli-green px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-deli-green-dark focus:ring-2 focus:ring-deli-green focus:ring-offset-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Open Email to Send
+          {status === "submitting" ? "Sending..." : "Send Message"}
         </button>
       </form>
+      )}
     </motion.div>
   );
 }
